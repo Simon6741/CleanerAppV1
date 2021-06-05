@@ -9,7 +9,7 @@ public class admin_view_faq extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_view_faq);
+        //setContentView(R.layout.activity_admin_view_faq);
 
     }
 }

@@ -9,6 +9,6 @@ public class admin_complaint extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_complaint);
+       // setContentView(R.layout.activity_admin_complaint);
     }
 }

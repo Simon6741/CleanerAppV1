@@ -9,6 +9,6 @@ public class admin_term extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_term);
+       // setContentView(R.layout.activity_admin_term);
     }
 }
