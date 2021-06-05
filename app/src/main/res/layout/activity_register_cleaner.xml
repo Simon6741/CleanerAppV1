@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".register_cleaner"
+    android:background="@color/main"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="bottom"
+        android:text="@string/registerAsCleaner"
+        android:textSize="30dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#8C8787"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:layout_width="166dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/registerFullName"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/registerCleanerFullName"
+            android:layout_width="227dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_text"
+            android:hint="TAN PEN THE"
+            android:padding="6dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="168dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/registerAge"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/registerCleanerAge"
+            android:layout_width="228dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_text"
+            android:hint="33"
+            android:inputType="number"
+            android:padding="6dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="168dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="@string/registerGender"
+            android:textSize="18dp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <LinearLayout
+                android:layout_width="254dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/registerCleanerMale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/registerMale" />
+
+                <RadioButton
+                    android:id="@+id/registerCleanerFemale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/registerFemale" />
+
+            </LinearLayout>
+        </RadioGroup>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="168dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/registerYearsExp"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/registerCleanerExp"
+            android:layout_width="228dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_text"
+            android:hint="3"
+            android:inputType="number"
+            android:padding="6dp" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="168dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/registerServicesCoverage"
+        android:textSize="18dp"
+        android:gravity="center"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <CheckBox
+            android:id="@+id/basicHouseKeeping"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/service1"
+            />
+        <CheckBox
+            android:id="@+id/carCleaning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/service2"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/springCleaning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/service3" />
+
+        <CheckBox
+            android:id="@+id/moveInOutCleaning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/service4" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/officeCommercialCleaning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/service5" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/registerCleanerNextBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/next"
+        app:iconPadding="10dp"
+        android:background="@color/purple_700"/>
+
+</LinearLayout>

@@ -1,0 +1,186 @@
+<resources>
+    <string name="app_name">Cleaning and Cleaner App</string>
+
+    <string name="fingerprintLogin">Use Your Fingerprint To Access</string>
+    <string name="fingerprintBtnAccess">Access</string>
+
+    <string name="loginEmail">Email Address</string>
+    <string name="loginPassword">Password</string>
+    <string name="loginNotRegistered">Not registered yet?&#160;</string>
+    <string name="loginClickHere">Click Here</string>
+    <string name="loginToRegister">&#160;to register now!</string>
+    <string name="loginForgotPassword">Forgot Password?</string>
+
+    <string name="registerAs">Register As:</string>
+    <string name="customer">Customer</string>
+    <string name="cleaner">Cleaner</string>
+
+    <string name="registerAsCustomer">Register As Customer</string>
+    <string name="registerAsCleaner">Register As Cleaner</string>
+    <string name="registerImage">Profile Picture:</string>
+    <string name="registerFullName">Full Name:</string>
+    <string name="registerAge">Age:</string>
+    <string name="registerGender">Gender:</string>
+    <string name="registerMale">Male</string>
+    <string name="registerFemale">Female:</string>
+    <string name="registerYearsExp">Years Experience:</string>
+    <string name="registerEmail">Email Address:</string>
+    <string name="registerContactNo">Contact Number:</string>
+    <string name="registerUsername">Username:</string>
+    <string name="registerPassword">Password:</string>
+    <string name="registerConfPassword">Confirm Password:</string>
+    <string name="registerBtnCreateAccount">Create Account</string>
+    <string name="registerBtnToLogin">Login</string>
+    <string name="registerServicesCoverage">Services Coverage:</string>
+    <string name="service1">Basic House Keeping</string>
+    <string name="service2">Car Cleaning</string>
+    <string name="service3">Spring Cleaning</string>
+    <string name="service4">Move In/Out Cleaning</string>
+    <string name="service5">Office/Commercial Cleaning</string>
+    <string name="next">Next</string>
+
+    <string name="resetPasswordEmail">Enter Your Email Address</string>
+    <string name="resetBtn">Reset</string>
+    <string name="resetBackBtn">Back</string>
+
+    <string name="emailVerificationText">Please verify your email address.</string>
+    <string name="emailVerificationBtn">Verify</string>
+    <string name="emailVerificationContinueBtn">Login</string>
+
+
+    <string name="to_booking">
+        <s>
+            Choose your desire service to continue...
+        </s>
+    </string>
+
+    <string name="basic">
+        <b>Descriptions: </b>
+        \n
+        1. This is a Basic House Keeping service.
+        \n
+        2. The cleaning works will include 4 main areas: Living room, Bedrooms, Kitchen, and Toilet
+        \n
+        3. Customer need to pay extra charges for extra services and request.
+        \n
+        4. Cleaning tools and materials are not included.
+
+    </string>
+    <string name="car">
+        <b>Descriptions: </b>
+        \n
+        1. This is a Car Cleaning service.
+        \n
+        2. The cleaning works only one car.
+        \n
+        3. Customer need to pay extra charges for extra services and request.
+        \n
+        4. Cleaning tools and materials are not included.
+
+    </string>
+    <string name="spring">
+        <b>Descriptions: </b>
+        \n
+        1. This is a Spring Cleaning service.
+        \n
+        2. The cleaning works coverage is only outside of the house.
+        \n
+        3. Customer need to pay extra charges for extra services and request.
+        \n
+        4. Cleaning tools and materials are not included.
+
+    </string>
+    <string name="move">
+        <b>Descriptions: </b>
+        \n
+        1. This is a Move In/Out Cleaning service.
+        \n
+        2. For move out, he cleaning works only works after all furniture is moved out.
+        \n
+        3. For move in, he cleaning works only works before all furniture is moved in.
+        \n
+        4. Customer need to pay extra charges for extra services and request.
+        \n
+        5. Cleaning tools and materials are not included.
+    </string>
+    <string name="office">
+        <b>Descriptions: </b>
+        \n
+        1. This is a Office/Commercial Cleaning service.
+        \n
+        2. The cleaning works only cover up to 350,000 square feet.
+        \n
+        3. Customer need to pay extra charges for extra services and request.
+        \n
+        4. Cleaning tools and materials are not included.
+
+    </string>
+
+    <string-array name="p_method">
+        <item>FPX</item>
+        <item>Credit/Debit Card</item>
+        <item>eWallet</item>
+    </string-array>
+
+    <string name="booking">
+        Please click to update the status of your booking.
+    </string>
+
+    <string name="to_rate">
+        Please click to rate our service.
+    </string>
+
+
+    <string name="rating">
+        <b>Thanks for using our service! ^^</b>
+        \n
+        <s>Please give us a rating and feedback on our service.</s>
+
+    </string>
+
+    <string name="complete_booking">
+        Please click "Complete" if only if our crew done the job. ^^
+
+    </string>
+    <string name="view_booking">
+        This page is to update booking status of the following booking.
+
+    </string>
+
+    <string name="cleaner_task_historyTitle">Task Completed</string>
+    <string name="cleaner_main_smallTitle">Task Incomplete</string>
+    <string name="cleaner_tc_mainTitle">What are the terms and conditions of this service?</string>
+    <string name="cleaner_faq_mainTitle">FAQ</string>
+
+    <string name="cleaner_complaintCustomerName">Name:</string>
+    <string name="cleaner_complaintReason">Reason:</string>
+    <string name="cleaner_complaintBtnSubmit">Submit</string>
+
+    <string name="cleaner_completeTaskDetail_Title1">GENERAL INFORMATION</string>
+    <string name="cleaner_completeTaskDetail_Name">Name:</string>
+    <string name="cleaner_completeTaskDetail_Address">Address:</string>
+    <string name="cleaner_completeTaskDetail_Contact">Contact No:</string>
+
+
+    <string name="cleaner_completeTaskDetail_Title2">SERVICE INFORMATION</string>
+    <string name="cleaner_completeTaskDetail_ServiceType">Service Type:</string>
+    <string name="cleaner_completeTaskDetail_ExtraService">Extra Service:</string>
+    <string name="cleaner_completeTaskDetail_Date">Date:</string>
+    <string name="cleaner_completeTaskDetail_Time">Time:</string>
+    <string name="cleaner_completeTaskDetail_SpecialInstruction">Special Instruction:</string>
+    <string name="cleaner_pendingBtn_Accept">Accept</string>
+
+    <string name="cleaner_editFullName">Full Name:</string>
+    <string name="cleaner_editUserName">Username:</string>
+    <string name="cleaner_editAge">Age:</string>
+    <string name="cleaner_editYearsExp">Years Experience:</string>
+    <string name="cleaner_editHP">HP Number:</string>
+    <string name="cleaner_edit_ServiceTitle">Service Coverage</string>
+    <string name="Service_1">Basic House Keeping</string>
+    <string name="Service_2">Spring Cleaning</string>
+    <string name="Service_3">Office/Commercial Cleaning</string>
+    <string name="Service_4">Car Cleaning</string>
+    <string name="Service_5">Move In/Out Cleaning</string>
+    <string name="cleaner_editUpdate">Update</string>
+
+</resources>

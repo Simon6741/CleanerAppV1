@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_home"
+        android:title="Home"
+        android:icon="@drawable/cleanerhome" />
+
+    <item android:id="@+id/nav_complaint"
+        android:title="Complaint"
+        android:icon="@drawable/cleanertask" />
+
+    <item android:id="@+id/nav_account"
+        android:title="Account"
+        android:icon="@drawable/cleanerimage" />
+</menu>

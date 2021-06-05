@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".cleaner_account">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        app:itemBackground="@color/dark_blue"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/menu_cleaner_nav">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <ImageView
+        android:id="@+id/iv_c_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/add_image" />
+
+    <TextView
+        android:id="@+id/tv_c_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="serif"
+        android:text="Jessie Lim"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/tv_c_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="80dp"
+        android:fontFamily="serif"
+        android:text="jessielim@gmail.com"
+        android:textSize="12dp"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:id="@+id/tv_c_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="100dp"
+        android:fontFamily="serif"
+        android:text="010-3657421"
+        android:textSize="11dp"
+        android:textColor="@color/black"
+        />
+
+    <Button
+        android:id="@+id/cleaner_btn_edit"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="150dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"
+        android:text="Edit Profile"
+        android:gravity="left|center_vertical"
+        android:drawableRight="@drawable/next" />
+
+    <Button
+        android:id="@+id/cleaner_btn_help"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="200dp"
+        android:backgroundTint="@color/white"
+        android:gravity="left|center_vertical"
+        android:text="Help (FAQ)"
+        android:textColor="@color/black"
+        android:drawableRight="@drawable/next" />
+
+    <Button
+        android:id="@+id/cleaner_btn_tc"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="250dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"
+        android:text="Term And Condition"
+        android:gravity="left|center_vertical"
+        android:drawableRight="@drawable/next"/>
+
+
+    <Button
+        android:id="@+id/cleaner_btn_logout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="300dp"
+        android:text="Logout"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"
+        android:gravity="left|center_vertical"/>
+
+</RelativeLayout>

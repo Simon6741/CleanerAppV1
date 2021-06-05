@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "734093591404",
+    "project_id": "cleanerapplication-v1",
+    "storage_bucket": "cleanerapplication-v1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734093591404:android:3f0fa398e33f59fbe6e949",
+        "android_client_info": {
+          "package_name": "com.example.cleanerapplication_v1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "734093591404-jl199hsd3k18deiluedmnfff2g2927m2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3e-LzaGyJBOtFFru8aMTvrJ6dR4aV0lg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "734093591404-jl199hsd3k18deiluedmnfff2g2927m2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734093591404:android:5830be69626993d3e6e949",
+        "android_client_info": {
+          "package_name": "com.example.cleanerappv1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "734093591404-jl199hsd3k18deiluedmnfff2g2927m2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3e-LzaGyJBOtFFru8aMTvrJ6dR4aV0lg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "734093591404-jl199hsd3k18deiluedmnfff2g2927m2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

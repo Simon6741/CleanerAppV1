@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".customer_feedback"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/h_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="10dp"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#8C8787"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/rating"
+        android:textSize="18dp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/excellent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Excellent"
+            />
+        <RadioButton
+            android:id="@+id/good"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Good"
+            />
+        <RadioButton
+            android:id="@+id/average"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Average"
+            />
+        <RadioButton
+            android:id="@+id/bad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bad"
+            />
+        <RadioButton
+            android:id="@+id/poor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Very Poor"
+            />
+
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:padding="10dp"
+        android:text="Comment (optional):"
+        android:textSize="12dp" />
+
+    <EditText
+        android:id="@+id/comment"
+        android:layout_width="324dp"
+        android:layout_height="103dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/input_long_text"
+        android:gravity="start"
+        android:hint="Leave your comment..."
+        android:padding="30dp" />
+
+
+    <Button
+        android:id="@+id/btn_feedback"
+        android:layout_width="200dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="submit"
+        />
+
+</LinearLayout>
