@@ -17,6 +17,7 @@
         android:theme="@style/Theme.CleanerAppV1">
         <activity android:name=".admin_view_faq"></activity>
         <activity android:name=".admin_add_faq" />
+        <activity android:name=".ui.admin_user_list_activity"/>
         <activity android:name=".admin_user_edit" />
         <activity android:name=".admin_cleaner" />
         <activity android:name=".admin_user" />

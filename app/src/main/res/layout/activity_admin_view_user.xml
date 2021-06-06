@@ -41,7 +41,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_customer"
+        android:id="@+id/btn_cust"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="100dp"
@@ -52,7 +52,7 @@
         android:textColor="@android:color/black"
         />
     <Button
-        android:id="@+id/btn_cleaner"
+        android:id="@+id/btn_clean"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="150dp"

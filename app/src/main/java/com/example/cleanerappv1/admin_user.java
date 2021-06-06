@@ -21,51 +21,8 @@ public class admin_user extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_user);
 
-        initView();
-        setBottomNavi();
-        setOnClick();
-    }
 
-    private void initView(){
-        bottomNavigationView = findViewById(R.id.navigation);
-//        btnCustomer = findViewById(R.id.btn_customer);
-//        btnCleaner = findViewById(R.id.btn_cleaner);
     }
 
 
-    private void setBottomNavi(){
-        //bottom nav
-        // BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
-        bottomNavigationView.setSelectedItemId(R.id.nav_user);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.nav_user:
-//                        startActivity(new Intent(getApplicationContext(), admin_user.class));
-//                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.nav_home:
-                        startActivity(new Intent(getApplicationContext(), admin_main.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.nav_setting:
-                        startActivity(new Intent(getApplicationContext(), admin_setting.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                }
-                return false;
-            }
-        });
-    }
-
-    private void setOnClick(){
-//        btnCustomer.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(getApplicationContext(), admin_.class));
-//                overridePendingTransition(0,0);
-//            }
-//        });
-    }
 }

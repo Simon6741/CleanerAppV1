@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.cleanerappv1.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -19,14 +21,17 @@ public class admin_view_user extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_view_user);
 
+        bottomNavigationView = findViewById(R.id.navigation);
+        btnCustomer = findViewById(R.id.btn_cust);
+        btnCleaner = findViewById(R.id.btn_clean);
+
         initView();
         setBottomNavi();
+        setOnClick();
     }
 
     private void initView(){
-        bottomNavigationView = findViewById(R.id.navigation);
-        btnCustomer = findViewById(R.id.btn_customer);
-        btnCleaner = findViewById(R.id.btn_cleaner);
+
     }
 
     private void setBottomNavi(){
@@ -56,12 +61,13 @@ public class admin_view_user extends AppCompatActivity {
     }
 
     private void setOnClick(){
-        btnCustomer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), admin_.class));
-                overridePendingTransition(0,0);
-            }
-        });
+       btnCustomer.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               startActivity(new Intent(getApplicationContext(), admin_user_list_activity.class));
+               overridePendingTransition(0,0);
+
+           }
+       });
     }
 }
