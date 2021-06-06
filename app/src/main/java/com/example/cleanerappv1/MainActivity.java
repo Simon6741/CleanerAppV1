@@ -12,6 +12,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cleanerappv1.ui.admin_main;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
@@ -53,76 +54,83 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(email.getText().toString().isEmpty()){
-                    email.setError("Email is missing!");
-                    return;
-                }
-                if(password.getText().toString().isEmpty()){
-                    password.setError("Password is missing!");
-                    return;
-                }
-
-                //login user
-                firebaseAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                    @Override
-                    public void onSuccess(AuthResult authResult) {
-
-                        //read data from database
-                        //read from Users table
-                        dbRef = FirebaseDatabase.getInstance().getReference().child("Users").child(firebaseAuth.getUid());
-                        dbRef.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                String userType = snapshot.child("userType").getValue().toString();
-                                if(userType.equals("Customer") && customer.isChecked()){
-                                    if(firebaseAuth.getCurrentUser().isEmailVerified()){
-                                        startActivity(new Intent(getApplicationContext(), customer_main.class));
-                                        finish();
-                                        Toast.makeText(MainActivity.this, "Successfully login as a customer.", Toast.LENGTH_SHORT).show();
-                                    }
-                                    else{
-                                        startActivity(new Intent(getApplicationContext(), email_verification.class));
-                                    }
-                                }
-                                else if(userType.equals("Cleaner") && cleaner.isChecked()){
-                                    if(firebaseAuth.getCurrentUser().isEmailVerified()){
-                                        startActivity(new Intent(getApplicationContext(), cleaner_main_new.class));
-                                        finish();
-                                        Toast.makeText(MainActivity.this, "Successfully login as a cleaner.", Toast.LENGTH_SHORT).show();
-                                    }
-                                    else{
-                                        startActivity(new Intent(getApplicationContext(), email_verification.class));
-                                    }
-                                }
-                                else if(userType.equals("Admin") && admin.isChecked()){
-                                    if(firebaseAuth.getCurrentUser().isEmailVerified()){
-                                        startActivity(new Intent(getApplicationContext(), cleaner_main.class));
-                                        finish();
-                                        Toast.makeText(MainActivity.this, "Successfully login as a admin.", Toast.LENGTH_SHORT).show();
-                                    }
-                                    else{
-                                        startActivity(new Intent(getApplicationContext(), email_verification.class));
-                                    }
-                                }
-                                else{
-                                    finish();
-                                    startActivity(getIntent());
-                                    Toast.makeText(MainActivity.this, "Unsuccessfully login.", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-                                Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                if(admin.isChecked()) {
+                    startActivity(new Intent(getApplicationContext(), admin_main.class));
+                } else {
+                    if(email.getText().toString().isEmpty()){
+                        email.setError("Email is missing!");
+                        return;
                     }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    if(password.getText().toString().isEmpty()){
+                        password.setError("Password is missing!");
+                        return;
                     }
-                });
+
+                    //login user
+                    firebaseAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
+
+                            //read data from database
+                            //read from Users table
+                            dbRef = FirebaseDatabase.getInstance().getReference().child("Users").child(firebaseAuth.getUid());
+                            dbRef.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    String userType = snapshot.child("userType").getValue().toString();
+                                    if(userType.equals("Customer") && customer.isChecked()){
+                                        if(firebaseAuth.getCurrentUser().isEmailVerified()){
+                                            startActivity(new Intent(getApplicationContext(), customer_main.class));
+                                            finish();
+                                            Toast.makeText(MainActivity.this, "Successfully login as a customer.", Toast.LENGTH_SHORT).show();
+                                        }
+                                        else{
+                                            startActivity(new Intent(getApplicationContext(), email_verification.class));
+                                        }
+                                    }
+                                    else if(userType.equals("Cleaner") && cleaner.isChecked()){
+                                        if(firebaseAuth.getCurrentUser().isEmailVerified()){
+                                            startActivity(new Intent(getApplicationContext(), cleaner_main_new.class));
+                                            finish();
+                                            Toast.makeText(MainActivity.this, "Successfully login as a cleaner.", Toast.LENGTH_SHORT).show();
+                                        }
+                                        else{
+                                            startActivity(new Intent(getApplicationContext(), email_verification.class));
+                                        }
+                                    }
+                                    else if(userType.equals("Admin") && admin.isChecked()){
+                                        //  if(firebaseAuth.getCurrentUser().isEmailVerified()){
+//                                        startActivity(new Intent(getApplicationContext(), cleaner_main.class));
+//                                        finish();
+                                        Toast.makeText(MainActivity.this, "Successfully login as a admin.", Toast.LENGTH_LONG).show();
+                                        startActivity(new Intent(getApplicationContext(), admin_main.class));
+
+                                        //     }
+//                                    else{
+//                                        startActivity(new Intent(getApplicationContext(), email_verification.class));
+//                                    }
+                                    }
+                                    else{
+                                        finish();
+                                        startActivity(getIntent());
+                                        Toast.makeText(MainActivity.this, "Unsuccessfully login.", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+                                    Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+
             }
         });
 

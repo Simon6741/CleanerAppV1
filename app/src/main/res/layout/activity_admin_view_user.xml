@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".admin_view_user">
+    tools:context=".ui.admin_view_user">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
@@ -41,7 +41,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/cus_list"
+        android:id="@+id/btn_customer"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="100dp"
@@ -52,7 +52,7 @@
         android:textColor="@android:color/black"
         />
     <Button
-        android:id="@+id/cleaner_list"
+        android:id="@+id/btn_cleaner"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="150dp"

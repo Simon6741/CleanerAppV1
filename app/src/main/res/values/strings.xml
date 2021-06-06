@@ -191,4 +191,9 @@
     <string name="admin_cleaner">Cleaner</string>
     <string name="search_placeholder">Search</string>
 
+    //admin
+    <string name="admin_service_title">Choose service type to view service record</string>
+
+    <string name="admin_user_customer">Customer</string>
+    <string name="admin_user_cleaner">Cleaner</string>
 </resources>

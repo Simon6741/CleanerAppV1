@@ -24,8 +24,8 @@
         <activity android:name=".admin_complaint" />
         <activity android:name=".admin_term" />
         <activity android:name=".admin_faq" />
-        <activity android:name=".admin_setting" />
-        <activity android:name=".admin_view_user" />
+        <activity android:name=".ui.admin_setting" />
+        <activity android:name=".ui.admin_view_user" />
         <activity android:name=".adminhome" />
         <activity android:name=".TaskHistoryCleaner" />
         <activity android:name=".cleaner_book" />
@@ -51,7 +51,7 @@
         <activity android:name=".email_verification" />
         <activity android:name=".reset_password" />
         <activity android:name=".register_cleaner_2" />
-        <activity android:name=".admin_main" />
+        <activity android:name=".ui.admin_main" />
         <activity android:name=".cleaner_main" />
         <activity android:name=".register_cleaner" />
         <activity android:name=".customer_main" />

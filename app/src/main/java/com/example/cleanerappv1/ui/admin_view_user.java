@@ -1,4 +1,4 @@
-package com.example.cleanerappv1;
+package com.example.cleanerappv1.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,32 +6,28 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
-import com.example.cleanerappv1.ui.admin_main;
-import com.example.cleanerappv1.ui.admin_setting;
+import com.example.cleanerappv1.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class admin_user extends AppCompatActivity {
+public class admin_view_user extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
-    //Button btnCustomer, btnCleaner;
+    Button btnCustomer, btnCleaner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_user);
+        setContentView(R.layout.activity_admin_view_user);
 
         initView();
         setBottomNavi();
-        setOnClick();
     }
 
     private void initView(){
         bottomNavigationView = findViewById(R.id.navigation);
-//        btnCustomer = findViewById(R.id.btn_customer);
-//        btnCleaner = findViewById(R.id.btn_cleaner);
+        btnCustomer = findViewById(R.id.btn_customer);
+        btnCleaner = findViewById(R.id.btn_cleaner);
     }
-
 
     private void setBottomNavi(){
         //bottom nav
@@ -60,12 +56,12 @@ public class admin_user extends AppCompatActivity {
     }
 
     private void setOnClick(){
-//        btnCustomer.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(getApplicationContext(), admin_.class));
-//                overridePendingTransition(0,0);
-//            }
-//        });
+        btnCustomer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), admin_.class));
+                overridePendingTransition(0,0);
+            }
+        });
     }
 }
