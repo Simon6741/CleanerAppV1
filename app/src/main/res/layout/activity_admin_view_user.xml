@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.admin_view_user">
+    tools:context=".ui.AdminViewUserActivity">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
@@ -49,8 +49,8 @@
         android:textSize="20dp"
         android:gravity="left|center_vertical"
         android:backgroundTint="@color/white"
-        android:textColor="@android:color/black"
-        />
+        android:textColor="@android:color/black" />
+
     <Button
         android:id="@+id/btn_clean"
         android:layout_width="match_parent"
@@ -60,8 +60,7 @@
         android:textSize="20dp"
         android:gravity="left|center_vertical"
         android:backgroundTint="@color/white"
-        android:textColor="@android:color/black"
-        />
+        android:textColor="@android:color/black" />
 
 
 </RelativeLayout>

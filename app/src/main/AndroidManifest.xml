@@ -17,7 +17,7 @@
         android:theme="@style/Theme.CleanerAppV1">
         <activity android:name=".admin_view_faq"></activity>
         <activity android:name=".admin_add_faq" />
-        <activity android:name=".ui.admin_user_list_activity"/>
+        <activity android:name=".ui.AdminUserListActivity"/>
         <activity android:name=".admin_user_edit" />
         <activity android:name=".admin_cleaner" />
         <activity android:name=".admin_user" />
@@ -25,8 +25,8 @@
         <activity android:name=".admin_complaint" />
         <activity android:name=".admin_term" />
         <activity android:name=".admin_faq" />
-        <activity android:name=".ui.admin_setting" />
-        <activity android:name=".ui.admin_view_user" />
+        <activity android:name=".ui.AdminSettingActivity" />
+        <activity android:name=".ui.AdminViewUserActivity" />
         <activity android:name=".adminhome" />
         <activity android:name=".TaskHistoryCleaner" />
         <activity android:name=".cleaner_book" />
@@ -52,7 +52,7 @@
         <activity android:name=".email_verification" />
         <activity android:name=".reset_password" />
         <activity android:name=".register_cleaner_2" />
-        <activity android:name=".ui.admin_main" />
+        <activity android:name=".ui.AdminMainActivity" />
         <activity android:name=".cleaner_main" />
         <activity android:name=".register_cleaner" />
         <activity android:name=".customer_main" />

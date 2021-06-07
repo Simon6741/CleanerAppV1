@@ -10,9 +10,11 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.cleanerappv1.R;
+import com.example.cleanerappv1.cleaner_book;
+import com.example.cleanerappv1.cleaner_main;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class admin_view_user extends AppCompatActivity {
+public class AdminViewUserActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     Button btnCustomer, btnCleaner;
 
@@ -47,11 +49,11 @@ public class admin_view_user extends AppCompatActivity {
 //                        overridePendingTransition(0,0);
                         return true;
                     case R.id.nav_home:
-                        startActivity(new Intent(getApplicationContext(), admin_main.class));
+                        startActivity(new Intent(getApplicationContext(), AdminMainActivity.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.nav_setting:
-                        startActivity(new Intent(getApplicationContext(), admin_setting.class));
+                        startActivity(new Intent(getApplicationContext(), AdminSettingActivity.class));
                         overridePendingTransition(0,0);
                         return true;
                 }
@@ -64,10 +66,23 @@ public class admin_view_user extends AppCompatActivity {
        btnCustomer.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               startActivity(new Intent(getApplicationContext(), admin_user_list_activity.class));
-               overridePendingTransition(0,0);
+               Intent intent =  new Intent(getApplicationContext(), AdminUserListActivity.class);
+               intent.putExtra("viewType", "Customer");
+               startActivity(intent);
 
+               overridePendingTransition(0,0);
            }
        });
+
+        btnCleaner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(getApplicationContext(), AdminUserListActivity.class);
+                intent.putExtra("viewType", "Cleaner");
+                startActivity(intent);
+
+                overridePendingTransition(0,0);
+            }
+        });
     }
 }

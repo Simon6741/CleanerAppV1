@@ -13,7 +13,7 @@ import android.widget.ListView;
 import com.example.cleanerappv1.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class admin_main extends AppCompatActivity {
+public class AdminMainActivity extends AppCompatActivity {
 
 
     BottomNavigationView bottomNavigationView;
@@ -43,13 +43,13 @@ public class admin_main extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.nav_user:
-                        startActivity(new Intent(getApplicationContext(), admin_view_user.class));
+                        startActivity(new Intent(getApplicationContext(), AdminViewUserActivity.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.nav_home:
                         return true;
                     case R.id.nav_setting:
-                        startActivity(new Intent(admin_main.this, admin_setting.class));
+                        startActivity(new Intent(AdminMainActivity.this, AdminSettingActivity.class));
                         overridePendingTransition(0,0);
                         return true;
                 }

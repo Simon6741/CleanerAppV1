@@ -8,11 +8,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.cleanerappv1.R;
-import com.example.cleanerappv1.ui.admin_main;
-import com.example.cleanerappv1.ui.admin_view_user;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class admin_setting extends AppCompatActivity {
+public class AdminSettingActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
 
     @Override
@@ -33,11 +31,11 @@ public class admin_setting extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.nav_user:
-                        startActivity(new Intent(getApplicationContext(), admin_view_user.class));
+                        startActivity(new Intent(getApplicationContext(), AdminViewUserActivity.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.nav_home:
-                        startActivity(new Intent(getApplicationContext(), admin_main.class));
+                        startActivity(new Intent(getApplicationContext(), AdminMainActivity.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.nav_setting:

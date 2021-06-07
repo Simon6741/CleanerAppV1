@@ -12,7 +12,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.cleanerappv1.ui.admin_main;
+import com.example.cleanerappv1.ui.AdminMainActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(admin.isChecked()) {
-                    startActivity(new Intent(getApplicationContext(), admin_main.class));
+                    startActivity(new Intent(getApplicationContext(), AdminMainActivity.class));
                 } else {
                     if(email.getText().toString().isEmpty()){
                         email.setError("Email is missing!");
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
 //                                        startActivity(new Intent(getApplicationContext(), cleaner_main.class));
 //                                        finish();
                                         Toast.makeText(MainActivity.this, "Successfully login as a admin.", Toast.LENGTH_LONG).show();
-                                        startActivity(new Intent(getApplicationContext(), admin_main.class));
+                                        startActivity(new Intent(getApplicationContext(), AdminMainActivity.class));
 
                                         //     }
 //                                    else{
