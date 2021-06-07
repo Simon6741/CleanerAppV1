@@ -21,7 +21,7 @@
         <activity android:name=".admin_user_edit" />
         <activity android:name=".admin_cleaner" />
         <activity android:name=".admin_user" />
-        <activity android:name=".admin_booking" />
+        <activity android:name=".ui.AdminBookingActivity" />
         <activity android:name=".admin_complaint" />
         <activity android:name=".admin_term" />
         <activity android:name=".admin_faq" />

@@ -2,24 +2,24 @@ package com.example.cleanerappv1.model;
 
 public class Customer {
    private String contactNumber;
-   private String email;
+   private String emailAddress;
    private String fullName;
    private String password;
-   private String uId;
+   private String uid;
    private String userType;
-   private String userName;
+   private String username;
 
    public Customer() {
    }
 
-   public Customer(String contactNumber, String email, String fullName, String password, String uId, String userType, String userName) {
+   public Customer(String contactNumber, String emailAddress, String fullName, String password, String uid, String userType, String username) {
       this.contactNumber = contactNumber;
-      this.email = email;
+      this.emailAddress = emailAddress;
       this.fullName = fullName;
       this.password = password;
-      this.uId = uId;
+      this.uid = uid;
       this.userType = userType;
-      this.userName = userName;
+      this.username = username;
    }
 
    public String getContactNumber() {
@@ -30,12 +30,12 @@ public class Customer {
       this.contactNumber = contactNumber;
    }
 
-   public String getEmail() {
-      return email;
+   public String getEmailAddress() {
+      return emailAddress;
    }
 
-   public void setEmail(String email) {
-      this.email = email;
+   public void setEmailAddress(String emailAddress) {
+      this.emailAddress = emailAddress;
    }
 
    public String getFullName() {
@@ -54,12 +54,12 @@ public class Customer {
       this.password = password;
    }
 
-   public String getuId() {
-      return uId;
+   public String getUid() {
+      return uid;
    }
 
-   public void setuId(String uId) {
-      this.uId = uId;
+   public void setUid(String uid) {
+      this.uid = uid;
    }
 
    public String getUserType() {
@@ -70,11 +70,11 @@ public class Customer {
       this.userType = userType;
    }
 
-   public String getUserName() {
-      return userName;
+   public String getUsername() {
+      return username;
    }
 
-   public void setUserName(String userName) {
-      this.userName = userName;
+   public void setUsername(String username) {
+      this.username = username;
    }
 }

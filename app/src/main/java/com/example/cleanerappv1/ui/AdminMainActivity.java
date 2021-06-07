@@ -6,13 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
+import android.view.View;
 import android.widget.Button;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 
 import com.example.cleanerappv1.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import static com.example.cleanerappv1.util.Constant.INTENT_VIEWTYPE;
 
 public class AdminMainActivity extends AppCompatActivity {
 
@@ -31,6 +31,7 @@ public class AdminMainActivity extends AppCompatActivity {
 
         initView();
         setBottomNavi();
+        setOnClick();
     }
 
     private void initView(){
@@ -64,5 +65,50 @@ public class AdminMainActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    private void setOnClick(){
+
+        btnBasicHouse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intentAdminBooking(btnBasicHouse.getText().toString());
+            }
+        });
+
+        btnCarCleaning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intentAdminBooking(btnCarCleaning.getText().toString());
+            }
+        });
+
+        btnMoveInOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intentAdminBooking(btnMoveInOut.getText().toString());
+            }
+        });
+
+        btnOffice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intentAdminBooking(btnOffice.getText().toString());
+            }
+        });
+
+        btnSpringCleaning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intentAdminBooking(btnSpringCleaning.getText().toString());
+            }
+        });
+
+
+    }
+
+    private void intentAdminBooking(String viewType){
+        Intent intent = new Intent(getApplicationContext(), AdminBookingActivity.class);
+        intent.putExtra(INTENT_VIEWTYPE, viewType);
     }
 }

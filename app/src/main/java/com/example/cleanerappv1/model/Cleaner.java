@@ -1,21 +1,34 @@
 package com.example.cleanerappv1.model;
 
 public class Cleaner {
-    private String age, basicHouseKeeping, carCleaning, contact_no,email,fullname,gender,image,moveInOutCleaning,officeCommercialCleaning,password,springCleaning,uid,userType,userName;
+    private String age;
+    private String basicHouseKeeping;
+    private String carCleaning;
+    private String contactNumber;
+    private String emailAddress;
+    private String fullName;
+    private String gender;
+    private String image;
+    private String moveInOutCleaning;
+    private String officeCommercialCleaning;
+    private String password;
+    private String springCleaning;
+    private String uid;
+    private String userType;
+    private String username;
+    private String yearExperience;
 
-    public Cleaner() {
+    public Cleaner(){
+
     }
 
-    public Cleaner(String age, String basicHouseKeeping, String carCleaning,
-                   String contact_no, String email, String fullname, String gender,
-                   String image, String moveInOutCleaning, String officeCommercialCleaning, String password,
-                   String springCleaning, String uid, String userType, String userName) {
+    public Cleaner(String age, String basicHouseKeeping, String carCleaning, String contactNumber, String emailAddress, String fullName, String gender, String image, String moveInOutCleaning, String officeCommercialCleaning, String password, String springCleaning, String uid, String userType, String username, String yearExperience) {
         this.age = age;
         this.basicHouseKeeping = basicHouseKeeping;
         this.carCleaning = carCleaning;
-        this.contact_no = contact_no;
-        this.email = email;
-        this.fullname = fullname;
+        this.contactNumber = contactNumber;
+        this.emailAddress = emailAddress;
+        this.fullName = fullName;
         this.gender = gender;
         this.image = image;
         this.moveInOutCleaning = moveInOutCleaning;
@@ -24,7 +37,8 @@ public class Cleaner {
         this.springCleaning = springCleaning;
         this.uid = uid;
         this.userType = userType;
-        this.userName = userName;
+        this.username = username;
+        this.yearExperience = yearExperience;
     }
 
     public String getAge() {
@@ -51,28 +65,28 @@ public class Cleaner {
         this.carCleaning = carCleaning;
     }
 
-    public String getContact_no() {
-        return contact_no;
+    public String getContactNumber() {
+        return contactNumber;
     }
 
-    public void setContact_no(String contact_no) {
-        this.contact_no = contact_no;
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
-    public String getFullname() {
-        return fullname;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getGender() {
@@ -139,11 +153,19 @@ public class Cleaner {
         this.userType = userType;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getYearExperience() {
+        return yearExperience;
+    }
+
+    public void setYearExperience(String yearExperience) {
+        this.yearExperience = yearExperience;
     }
 }

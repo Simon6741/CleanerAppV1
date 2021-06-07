@@ -1,14 +1,16 @@
-package com.example.cleanerappv1;
+package com.example.cleanerappv1.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class admin_booking extends AppCompatActivity {
+import com.example.cleanerappv1.R;
+
+public class AdminBookingActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.activity_admin_booking);
+       setContentView(R.layout.activity_admin_booking);
     }
 }
