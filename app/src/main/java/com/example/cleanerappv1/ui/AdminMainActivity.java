@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -17,6 +18,7 @@ public class AdminMainActivity extends AppCompatActivity {
 
 
     BottomNavigationView bottomNavigationView;
+    Button btnBasicHouse, btnCarCleaning, btnSpringCleaning, btnMoveInOut, btnOffice;
   //  private ListView service;
   //  private String [] array = {"Basic House Keeping", "Car Cleaning", "Spring Cleaning", "Move In/Out Cleaning", "Office/Commercial Cleaning"};
 
@@ -26,12 +28,18 @@ public class AdminMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_main);
 
         this.setTitle("Main Page");
-        service =findViewById(R.id.services);
-        bottomNavigationView = findViewById(R.id.bottom_nav);
 
-//        ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, array);
-//        service.setAdapter(listAdapter);
+        initView();
         setBottomNavi();
+    }
+
+    private void initView(){
+        bottomNavigationView = findViewById(R.id.bottom_nav);
+        btnBasicHouse = findViewById(R.id.btn_house_keeping);
+        btnCarCleaning = findViewById(R.id.btn_car_cleaning);
+        btnSpringCleaning = findViewById(R.id.btn_spring_cleaning);
+        btnMoveInOut = findViewById(R.id.btn_move_in_out);
+        btnOffice = findViewById(R.id.btn_office_cleaning);
     }
 
     private void setBottomNavi(){

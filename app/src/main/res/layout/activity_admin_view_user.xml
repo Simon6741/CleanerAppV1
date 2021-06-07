@@ -43,7 +43,8 @@
     <Button
         android:id="@+id/btn_cust"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
+        android:paddingVertical="12dp"
         android:layout_marginTop="100dp"
         android:text="Customer"
         android:textSize="20dp"
@@ -54,8 +55,10 @@
     <Button
         android:id="@+id/btn_clean"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="150dp"
+        android:layout_height="wrap_content"
+        android:paddingVertical="12dp"
+        android:layout_below="@id/btn_cust"
+
         android:text="Cleaner"
         android:textSize="20dp"
         android:gravity="left|center_vertical"

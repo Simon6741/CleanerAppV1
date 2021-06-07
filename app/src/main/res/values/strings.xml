@@ -193,6 +193,11 @@
 
     //admin
     <string name="admin_service_title">Choose service type to view service record</string>
+    <string name="admin_service_basicHouse">Basic House Keeping</string>
+    <string name="admin_service_carCleaning">Car Cleaning</string>
+    <string name="admin_service_springCleaning">Spring Cleaning</string>
+    <string name="admin_service_moveInOut">Move In/Out Cleaning</string>
+    <string name="admin_service_officeCommercial">Office/Commercial Cleaning</string>
 
     <string name="admin_user_customer">Customer</string>
     <string name="admin_user_cleaner">Cleaner</string>

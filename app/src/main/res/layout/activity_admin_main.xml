@@ -19,6 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:paddingLeft="16dp" />
 
+
 <!--    <ListView-->
 <!--        android:id="@+id/services"-->
 
@@ -30,9 +31,10 @@
     <Button
         android:id="@+id/btn_house_keeping"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Basic House Keeping"
+        android:paddingVertical="12dp"
+        android:text="@string/admin_service_basicHouse"
         android:textSize="20dp"
         android:gravity="left|center_vertical"
         android:backgroundTint="@color/white"
@@ -42,8 +44,9 @@
     <Button
         android:id="@+id/btn_car_cleaning"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Car Cleaning"
+        android:layout_height="wrap_content"
+        android:paddingVertical="12dp"
+        android:text="@string/admin_service_carCleaning"
         android:textSize="20dp"
         android:gravity="left|center_vertical"
         android:backgroundTint="@color/white"
@@ -53,8 +56,9 @@
     <Button
         android:id="@+id/btn_spring_cleaning"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Spring Cleaning"
+        android:layout_height="wrap_content"
+        android:paddingVertical="12dp"
+        android:text="@string/admin_service_springCleaning"
         android:textSize="20dp"
         android:gravity="left|center_vertical"
         android:backgroundTint="@color/white"
@@ -62,59 +66,28 @@
         android:layout_below="@id/btn_car_cleaning"/>
 
     <Button
-        android:id="@+id/btn_spring_cleaning"
+        android:id="@+id/btn_move_in_out"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Move In/Out Cleanin"
+        android:layout_height="wrap_content"
+        android:paddingVertical="12dp"
+        android:text="@string/admin_service_moveInOut"
         android:textSize="20dp"
         android:gravity="left|center_vertical"
         android:backgroundTint="@color/white"
         android:textColor="@android:color/black"
-        android:layout_below="@id/btn_car_cleaning"/>
+        android:layout_below="@id/btn_spring_cleaning"/>
 
-
-    <!--    <Button-->
-<!--        android:id="@+id/btn_car_cleaning"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="60dp"-->
-<!--        android:layout_marginTop="150dp"-->
-<!--        android:text="Car Cleaning"-->
-<!--        android:textSize="20dp"-->
-<!--        android:gravity="left|center_vertical"-->
-<!--        android:backgroundTint="@color/white"-->
-<!--        android:textColor="@android:color/black" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/btn3"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="60dp"-->
-<!--        android:layout_marginTop="100dp"-->
-<!--        android:text="Customer"-->
-<!--        android:textSize="20dp"-->
-<!--        android:gravity="left|center_vertical"-->
-<!--        android:backgroundTint="@color/white"-->
-<!--        android:textColor="@android:color/black" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/btn4"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="60dp"-->
-<!--        android:layout_marginTop="150dp"-->
-<!--        android:text="Cleaner"-->
-<!--        android:textSize="20dp"-->
-<!--        android:gravity="left|center_vertical"-->
-<!--        android:backgroundTint="@color/white"-->
-<!--        android:textColor="@android:color/black" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/btn5"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="60dp"-->
-<!--        android:layout_marginTop="100dp"-->
-<!--        android:text="Customer"-->
-<!--        android:textSize="20dp"-->
-<!--        android:gravity="left|center_vertical"-->
-<!--        android:backgroundTint="@color/white"/>-->
+    <Button
+        android:id="@+id/btn_office_cleaning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="12dp"
+        android:text="@string/admin_service_officeCommercial"
+        android:textSize="20dp"
+        android:gravity="left|center_vertical"
+        android:backgroundTint="@color/white"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/btn_move_in_out"/>
 
 
     <LinearLayout
