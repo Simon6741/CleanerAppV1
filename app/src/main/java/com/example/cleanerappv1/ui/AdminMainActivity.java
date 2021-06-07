@@ -17,8 +17,8 @@ public class AdminMainActivity extends AppCompatActivity {
 
 
     BottomNavigationView bottomNavigationView;
-    private ListView service;
-    private String [] array = {"Basic House Keeping", "Car Cleaning", "Spring Cleaning", "Move In/Out Cleaning", "Office/Commercial Cleaning"};
+  //  private ListView service;
+  //  private String [] array = {"Basic House Keeping", "Car Cleaning", "Spring Cleaning", "Move In/Out Cleaning", "Office/Commercial Cleaning"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +29,8 @@ public class AdminMainActivity extends AppCompatActivity {
         service =findViewById(R.id.services);
         bottomNavigationView = findViewById(R.id.bottom_nav);
 
-        ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, array);
-        service.setAdapter(listAdapter);
+//        ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, array);
+//        service.setAdapter(listAdapter);
         setBottomNavi();
     }
 

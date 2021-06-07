@@ -61,6 +61,17 @@
         android:textColor="@android:color/black"
         android:layout_below="@id/btn_car_cleaning"/>
 
+    <Button
+        android:id="@+id/btn_spring_cleaning"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Move In/Out Cleanin"
+        android:textSize="20dp"
+        android:gravity="left|center_vertical"
+        android:backgroundTint="@color/white"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/btn_car_cleaning"/>
+
 
     <!--    <Button-->
 <!--        android:id="@+id/btn_car_cleaning"-->
