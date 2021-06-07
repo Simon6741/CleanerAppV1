@@ -212,9 +212,12 @@
 
     <string name="tnc">Terms And Conditions</string>
     <string name="btn_edit">Edit</string>
+    <string name="btn_add">Add</string>
     <string name="complaint_username">Username : %s</string>
+    <string name="complaint_details">Details: </string>
+    <string name="btn_send_email">Send Email</string>
 
-
+    <string name="complaint_list">Complaint List</string>
 
 
 </resources>
