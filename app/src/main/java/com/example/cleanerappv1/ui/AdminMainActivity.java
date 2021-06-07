@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.cleanerappv1.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -72,35 +74,35 @@ public class AdminMainActivity extends AppCompatActivity {
         btnBasicHouse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intentAdminBooking(btnBasicHouse.getText().toString());
+                intentAdminBooking(getString(R.string.admin_service_basicHouse));
             }
         });
 
         btnCarCleaning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intentAdminBooking(btnCarCleaning.getText().toString());
+                intentAdminBooking(getString(R.string.admin_service_carCleaning));
             }
         });
 
         btnMoveInOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intentAdminBooking(btnMoveInOut.getText().toString());
+                intentAdminBooking(getString(R.string.admin_service_moveInOut));
             }
         });
 
         btnOffice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intentAdminBooking(btnOffice.getText().toString());
+                intentAdminBooking(getString(R.string.admin_service_officeCommercial));
             }
         });
 
         btnSpringCleaning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intentAdminBooking(btnSpringCleaning.getText().toString());
+                intentAdminBooking(getString(R.string.admin_service_springCleaning));
             }
         });
 
@@ -108,7 +110,12 @@ public class AdminMainActivity extends AppCompatActivity {
     }
 
     private void intentAdminBooking(String viewType){
+        Log.d("Try", viewType);
+        Toast.makeText(getApplicationContext(),viewType,Toast.LENGTH_LONG);
         Intent intent = new Intent(getApplicationContext(), AdminBookingActivity.class);
         intent.putExtra(INTENT_VIEWTYPE, viewType);
+        startActivity(intent);
+
+        overridePendingTransition(0,0);
     }
 }
