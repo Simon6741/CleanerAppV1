@@ -1,15 +1,20 @@
 package com.example.cleanerappv1.ui;
 
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Button;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cleanerappv1.R;
 import com.example.cleanerappv1.model.FAQ;
 import com.example.cleanerappv1.model.TNC;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -65,7 +70,22 @@ public class ActivityEditFAQ extends AppCompatActivity {
 
                 db = FirebaseDatabase.getInstance();
                 mDatabase = db.getReference("faq");
-                mDatabase.child(id).setValue(faq);
+                mDatabase.child(id).setValue(faq).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        AlertDialog alertDialog = new AlertDialog.Builder(ActivityEditFAQ.this)
+                                .setTitle(getString(R.string.dialog_edit_faq))
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.dismiss();
+                                        Intent intent = new Intent();
+                                        setResult(Activity.RESULT_OK, intent);
+                                        finish();
+                                    }
+                                }).show();
+                    }
+                });
 
 
             }

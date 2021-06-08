@@ -72,15 +72,13 @@ public class AdminFaqActivity extends AppCompatActivity implements FaqListAdapte
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == START_FOR_RESULT_FAQ_ADD){
-            Log.d("Enter","True");
+        if(requestCode == START_FOR_RESULT){
             if(resultCode == Activity.RESULT_OK){
-                Log.d("Enter","TrueTrue");
                 faqArrayList.clear();
                 setupData();
             }
         }
-        Log.d("Enter","False");
+
     }
 
     private void setupView() {
@@ -136,9 +134,7 @@ public class AdminFaqActivity extends AppCompatActivity implements FaqListAdapte
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), AdminAddFaqActivity.class);
-//                intent.putExtra("viewType", "Customer");
-                startActivity(intent);
-
+                startActivityForResult(intent, START_FOR_RESULT);
                 overridePendingTransition(0, 0);
             }
         });
@@ -154,5 +150,6 @@ public class AdminFaqActivity extends AppCompatActivity implements FaqListAdapte
         intent.putExtra(INTENT_FAQ_DESC,faqArrayList.get(position).getDetail());
         intent.putExtra(INTENT_ID,faqArrayList.get(position).getId());
         startActivityForResult(intent,START_FOR_RESULT);
+        overridePendingTransition(0, 0);
     }
 }
