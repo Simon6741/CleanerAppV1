@@ -25,12 +25,15 @@ public class TncListAdapter extends RecyclerView.Adapter<TncListAdapter.Holder> 
 
     private Context context;
     public ArrayList<TNC> tncArrayList;
+    private ItemClickListener mListener;
+
 
 
     //constructor
-    public TncListAdapter(Context context, ArrayList<TNC> tncs) {
+    public TncListAdapter(Context context, ArrayList<TNC> tncs, ItemClickListener listener) {
         this.context = context;
         this.tncArrayList = tncs;
+        this.mListener = listener;
     }
 
     @NonNull
@@ -64,8 +67,9 @@ public class TncListAdapter extends RecyclerView.Adapter<TncListAdapter.Holder> 
 //                intentToTaskDetail.putExtra("Time",customerBookings.getTime());
 //                intentToTaskDetail.putExtra("SpecialInt",customerBookings.getSpecial());
 //                context.startActivity(intentToTaskDetail);
+                mListener.onItemClick(position);
 
-                context.startActivity(new Intent(context, ActivityEditTerm.class));
+
 
             }
         });
@@ -83,5 +87,9 @@ public class TncListAdapter extends RecyclerView.Adapter<TncListAdapter.Holder> 
             super(itemView);
             tv_tnc_title = itemView.findViewById(R.id.tv_tnc_item);
         }
+    }
+
+    public interface ItemClickListener{
+        void onItemClick(int position);
     }
 }

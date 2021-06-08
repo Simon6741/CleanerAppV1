@@ -1,5 +1,6 @@
 package com.example.cleanerappv1.ui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,9 +36,11 @@ import java.util.ArrayList;
 import static com.example.cleanerappv1.util.Constant.INTENT_CONTACT;
 import static com.example.cleanerappv1.util.Constant.INTENT_EMAIL;
 import static com.example.cleanerappv1.util.Constant.INTENT_NAME;
+import static com.example.cleanerappv1.util.Constant.INTENT_PASSWORD;
 import static com.example.cleanerappv1.util.Constant.INTENT_USERNAME;
 import static com.example.cleanerappv1.util.Constant.INTENT_USER_ID;
 import static com.example.cleanerappv1.util.Constant.INTENT_VIEWTYPE;
+import static com.example.cleanerappv1.util.Constant.START_FOR_RESULT;
 import static com.example.cleanerappv1.util.Constant.TYPE_CUSTOMER;
 
 
@@ -66,6 +69,20 @@ public class AdminUserListActivity extends AppCompatActivity implements Customer
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == START_FOR_RESULT){
+            if(resultCode == Activity.RESULT_OK){
+                customerArrayList.clear();
+                cleanerArrayList.clear();
+                userType = data.getStringExtra(INTENT_VIEWTYPE);
+                setupData();
+            }
+        }
+    }
+
     private void setupView(){
         txtUserType = findViewById(R.id.txt_userType);
         recyclerViewUserList = findViewById(R.id.recyclerViewUser);
@@ -90,19 +107,21 @@ public class AdminUserListActivity extends AppCompatActivity implements Customer
     }
 
     private void setupData(){
+
         databaseReference = FirebaseDatabase.getInstance().getReference();
         Query query = databaseReference.child("Users").orderByChild("userType").equalTo(userType);
 
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.d("customer", "Hello3");
+
                 if (snapshot.exists()) {
                     if(userType.equals("Customer")){
                         for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                             Customer customer = dataSnapshot.getValue(Customer.class);
                             customerArrayList.add(customer);
                         }
+                        Log.d("Customer", String.valueOf(customerArrayList.size()));
                         customerListAdapter.notifyDataSetChanged();
                     }
                     else {
@@ -110,6 +129,7 @@ public class AdminUserListActivity extends AppCompatActivity implements Customer
                             Cleaner cleaner = dataSnapshot.getValue(Cleaner.class);
                             cleanerArrayList.add(cleaner);
                         }
+                        Log.d("Cleaner", String.valueOf(cleanerArrayList.size()));
                         cleanerListAdapter.notifyDataSetChanged();
                     }
                 } else {
@@ -126,6 +146,7 @@ public class AdminUserListActivity extends AppCompatActivity implements Customer
 
     @Override
     public void onItemClick(int position, String viewType) {
+
         Intent intent = new Intent(this, AdminUserEditActivity.class);
         intent.putExtra(INTENT_VIEWTYPE,viewType);
         if(viewType.equals(TYPE_CUSTOMER)){
@@ -134,15 +155,17 @@ public class AdminUserListActivity extends AppCompatActivity implements Customer
             intent.putExtra(INTENT_EMAIL,customerArrayList.get(position).getEmailAddress());
             intent.putExtra(INTENT_CONTACT,customerArrayList.get(position).getContactNumber());
             intent.putExtra(INTENT_USER_ID,customerArrayList.get(position).getUid());
+            intent.putExtra(INTENT_PASSWORD, customerArrayList.get(position).getPassword());
         } else {
             intent.putExtra(INTENT_USERNAME,cleanerArrayList.get(position).getUsername());
             intent.putExtra(INTENT_NAME,cleanerArrayList.get(position).getFullName());
             intent.putExtra(INTENT_EMAIL,cleanerArrayList.get(position).getEmailAddress());
             intent.putExtra(INTENT_CONTACT,cleanerArrayList.get(position).getContactNumber());
             intent.putExtra(INTENT_USER_ID,cleanerArrayList.get(position).getUid());
+            intent.putExtra(INTENT_PASSWORD, cleanerArrayList.get(position).getPassword());
         }
 
-        startActivity(intent);
+        startActivityForResult(intent,START_FOR_RESULT);
         //startActivity(new Intent(this, AdminUserEditActivity.class));
         //Toast.makeText(this, customerArrayList.get(position).getUsername(), Toast.LENGTH_LONG);
 

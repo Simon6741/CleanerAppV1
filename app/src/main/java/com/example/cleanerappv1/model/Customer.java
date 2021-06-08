@@ -2,7 +2,7 @@ package com.example.cleanerappv1.model;
 
 import java.io.Serializable;
 
-public class Customer implements Serializable {
+public class Customer{
    private String contactNumber;
    private String emailAddress;
    private String fullName;
@@ -14,14 +14,6 @@ public class Customer implements Serializable {
    public Customer() {
    }
 
-   public Customer(String contactNumber, String emailAddress, String fullName, String uid, String username) {
-      this.contactNumber = contactNumber;
-      this.emailAddress = emailAddress;
-      this.fullName = fullName;
-      this.uid = uid;
-      this.username = username;
-   }
-
    public Customer(String contactNumber, String emailAddress, String fullName, String password, String uid, String userType, String username) {
       this.contactNumber = contactNumber;
       this.emailAddress = emailAddress;
@@ -31,6 +23,14 @@ public class Customer implements Serializable {
       this.userType = userType;
       this.username = username;
    }
+
+//   public Customer(String contactNumber, String emailAddress, String fullName, String uid, String username) {
+//      this.contactNumber = contactNumber;
+//      this.emailAddress = emailAddress;
+//      this.fullName = fullName;
+//      this.uid = uid;
+//      this.username = username;
+//   }
 
    public String getContactNumber() {
       return contactNumber;

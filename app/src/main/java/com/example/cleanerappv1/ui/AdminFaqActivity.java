@@ -27,7 +27,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 
-public class AdminFaqActivity extends AppCompatActivity {
+public class AdminFaqActivity extends AppCompatActivity implements FaqListAdapter.ItemClickListener {
 
     Button btnAdd;
     RecyclerView rvFaq;
@@ -58,7 +58,7 @@ public class AdminFaqActivity extends AppCompatActivity {
         rvFaq.setHasFixedSize(true);
         rvFaq.setLayoutManager(new LinearLayoutManager(this));
 
-        faqListAdapter = new FaqListAdapter(this, faqArrayList);
+        faqListAdapter = new FaqListAdapter(this, faqArrayList,this);
         rvFaq.setAdapter(faqListAdapter);
     }
 
@@ -111,5 +111,10 @@ public class AdminFaqActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        startActivity(new Intent(this, ActivityEditFAQ.class));
     }
 }

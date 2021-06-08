@@ -27,11 +27,14 @@ public class FaqListAdapter extends RecyclerView.Adapter<FaqListAdapter.Holder> 
     private Context context;
     //array list <data class>
     public ArrayList<FAQ> faqArrayList;
+    private ItemClickListener mListener;
+
 
     //constructor
-    public FaqListAdapter(Context context, ArrayList<FAQ> faqs) {
+    public FaqListAdapter(Context context, ArrayList<FAQ> faqs, ItemClickListener listener) {
         this.context = context;
         this.faqArrayList = faqs;
+        this.mListener = listener;
     }
 
     @NonNull
@@ -54,8 +57,9 @@ public class FaqListAdapter extends RecyclerView.Adapter<FaqListAdapter.Holder> 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mListener.onItemClick(position);
 
-                context.startActivity(new Intent(context, ActivityEditFAQ.class));
+                //context.startActivity(new Intent(context, ActivityEditFAQ.class));
             }
         });
 
@@ -75,5 +79,9 @@ public class FaqListAdapter extends RecyclerView.Adapter<FaqListAdapter.Holder> 
             tv_faq_title = itemView.findViewById(R.id.tv_faq_item_title);
             tv_faq_desc = itemView.findViewById(R.id.tv_faq_item_desc);
         }
+    }
+
+    public interface ItemClickListener{
+        void onItemClick(int position);
     }
 }

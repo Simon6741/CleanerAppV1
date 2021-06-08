@@ -26,7 +26,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class AdminTNCActivity extends AppCompatActivity {
+public class AdminTNCActivity extends AppCompatActivity implements TncListAdapter.ItemClickListener {
 
     Button btnAdd;
     RecyclerView rvTNC;
@@ -56,7 +56,7 @@ public class AdminTNCActivity extends AppCompatActivity {
         rvTNC.setHasFixedSize(true);
         rvTNC.setLayoutManager(new LinearLayoutManager(this));
 
-        tncListAdapter = new TncListAdapter(this, tncArrayList);
+        tncListAdapter = new TncListAdapter(this, tncArrayList,this);
         rvTNC.setAdapter(tncListAdapter);
     }
 
@@ -106,5 +106,10 @@ public class AdminTNCActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        startActivity(new Intent(this, ActivityEditTerm.class));
     }
 }
