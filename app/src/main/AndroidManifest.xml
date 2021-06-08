@@ -18,7 +18,7 @@
         <activity android:name=".admin_view_faq"></activity>
         <activity android:name=".ui.AdminAddFaqActivity" />
         <activity android:name=".ui.AdminUserListActivity"/>
-        <activity android:name=".ui.admin_user_edit" />
+        <activity android:name=".ui.AdminUserEditActivity" />
         <activity android:name=".admin_cleaner" />
         <activity android:name=".admin_user" />
         <activity android:name=".ui.AdminBookingActivity" />

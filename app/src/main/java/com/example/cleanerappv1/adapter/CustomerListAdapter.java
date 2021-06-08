@@ -5,11 +5,12 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.cleanerappv1.R;
-import com.example.cleanerappv1.ui.admin_user_edit;
+import com.example.cleanerappv1.ui.AdminUserEditActivity;
 import com.example.cleanerappv1.model.Customer;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import static com.example.cleanerappv1.util.Constant.TYPE_CUSTOMER;
 
 
 public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapter.Holder>{
@@ -28,9 +30,10 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
 
 
     //constructor
-    public CustomerListAdapter(Context context, ArrayList<Customer> customers) {
+    public CustomerListAdapter(Context context, ArrayList<Customer> customers, ItemClickListener listener) {
         this.context = context;
         this.customerList = customers;
+        this.mListener = listener;
     }
 
     @NonNull
@@ -54,10 +57,20 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
         holder.tv_contact.setText(customer.getContactNumber());
         holder.tv_email.setText(customer.getEmailAddress());
 
+//        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(mListener != null){
+//                    mListener.onItemClick(position);
+//                }
+//            }
+//        });
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context, admin_user_edit.class));
+                mListener.onItemClick(position, TYPE_CUSTOMER);
+                //context.startActivity(new Intent(context, AdminUserEditActivity.class));
             }
         });
 
@@ -74,6 +87,7 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
         TextView tv_contact;
         TextView tv_email;
         ImageView imgView_profile;
+       // Button btnDelete;
 
 
         public Holder(@NonNull View itemView) {
@@ -82,6 +96,7 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
             tv_contact = itemView.findViewById(R.id.tv_contact_no);
             tv_email = itemView.findViewById(R.id.tv_email);
             imgView_profile = itemView.findViewById(R.id.imgViewUser);
+           // btnDelete = itemView.findViewById(R.id.btn_delete);
 
 
 //            itemView.setOnClickListener(new View.OnClickListener() {
@@ -94,6 +109,6 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
     }
 
     public interface ItemClickListener{
-        void onItemClick(int position);
+        void onItemClick(int position, String viewType);
     }
 }

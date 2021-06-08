@@ -1,6 +1,8 @@
 package com.example.cleanerappv1.model;
 
-public class Customer {
+import java.io.Serializable;
+
+public class Customer implements Serializable {
    private String contactNumber;
    private String emailAddress;
    private String fullName;
@@ -10,6 +12,14 @@ public class Customer {
    private String username;
 
    public Customer() {
+   }
+
+   public Customer(String contactNumber, String emailAddress, String fullName, String uid, String username) {
+      this.contactNumber = contactNumber;
+      this.emailAddress = emailAddress;
+      this.fullName = fullName;
+      this.uid = uid;
+      this.username = username;
    }
 
    public Customer(String contactNumber, String emailAddress, String fullName, String password, String uid, String userType, String username) {
@@ -77,4 +87,6 @@ public class Customer {
    public void setUsername(String username) {
       this.username = username;
    }
+
+
 }

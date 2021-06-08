@@ -1,5 +1,6 @@
 package com.example.cleanerappv1.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.AdapterView;
@@ -30,6 +31,14 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+
+import static com.example.cleanerappv1.util.Constant.INTENT_CONTACT;
+import static com.example.cleanerappv1.util.Constant.INTENT_EMAIL;
+import static com.example.cleanerappv1.util.Constant.INTENT_NAME;
+import static com.example.cleanerappv1.util.Constant.INTENT_USERNAME;
+import static com.example.cleanerappv1.util.Constant.INTENT_USER_ID;
+import static com.example.cleanerappv1.util.Constant.INTENT_VIEWTYPE;
+import static com.example.cleanerappv1.util.Constant.TYPE_CUSTOMER;
 
 
 public class AdminUserListActivity extends AppCompatActivity implements CustomerListAdapter.ItemClickListener {
@@ -71,11 +80,11 @@ public class AdminUserListActivity extends AppCompatActivity implements Customer
         recyclerViewUserList.setLayoutManager(new LinearLayoutManager(this));
 
         if(userType.equals("Customer")){
-            customerListAdapter = new CustomerListAdapter(this, customerArrayList);
+            customerListAdapter = new CustomerListAdapter(this, customerArrayList, this);
             recyclerViewUserList.setAdapter(customerListAdapter);
         }
         else {
-            cleanerListAdapter = new CleanerListAdapter(this, cleanerArrayList);
+            cleanerListAdapter = new CleanerListAdapter(this, cleanerArrayList, this);
             recyclerViewUserList.setAdapter(cleanerListAdapter);
         }
     }
@@ -116,8 +125,26 @@ public class AdminUserListActivity extends AppCompatActivity implements Customer
     }
 
     @Override
-    public void onItemClick(int position) {
-        Toast.makeText(this, customerArrayList.get(position).getUsername(), Toast.LENGTH_LONG);
+    public void onItemClick(int position, String viewType) {
+        Intent intent = new Intent(this, AdminUserEditActivity.class);
+        intent.putExtra(INTENT_VIEWTYPE,viewType);
+        if(viewType.equals(TYPE_CUSTOMER)){
+            intent.putExtra(INTENT_USERNAME,customerArrayList.get(position).getUsername());
+            intent.putExtra(INTENT_NAME,customerArrayList.get(position).getFullName());
+            intent.putExtra(INTENT_EMAIL,customerArrayList.get(position).getEmailAddress());
+            intent.putExtra(INTENT_CONTACT,customerArrayList.get(position).getContactNumber());
+            intent.putExtra(INTENT_USER_ID,customerArrayList.get(position).getUid());
+        } else {
+            intent.putExtra(INTENT_USERNAME,cleanerArrayList.get(position).getUsername());
+            intent.putExtra(INTENT_NAME,cleanerArrayList.get(position).getFullName());
+            intent.putExtra(INTENT_EMAIL,cleanerArrayList.get(position).getEmailAddress());
+            intent.putExtra(INTENT_CONTACT,cleanerArrayList.get(position).getContactNumber());
+            intent.putExtra(INTENT_USER_ID,cleanerArrayList.get(position).getUid());
+        }
+
+        startActivity(intent);
+        //startActivity(new Intent(this, AdminUserEditActivity.class));
+        //Toast.makeText(this, customerArrayList.get(position).getUsername(), Toast.LENGTH_LONG);
 
     }
 }

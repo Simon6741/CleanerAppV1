@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.cleanerappv1.R;
-import com.example.cleanerappv1.ui.admin_user_edit;
+import com.example.cleanerappv1.ui.AdminUserEditActivity;
 import com.example.cleanerappv1.model.Customer;
 import com.example.cleanerappv1.model.ServiceDetails;
 
@@ -56,7 +56,7 @@ public class ServiceListAdapter extends RecyclerView.Adapter<ServiceListAdapter.
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context, admin_user_edit.class));
+                context.startActivity(new Intent(context, AdminUserEditActivity.class));
             }
         });
 
