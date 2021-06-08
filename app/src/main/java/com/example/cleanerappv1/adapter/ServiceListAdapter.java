@@ -53,12 +53,7 @@ public class ServiceListAdapter extends RecyclerView.Adapter<ServiceListAdapter.
         holder.tvPhone.setText(String.format(context.getString(R.string.admin_service_phone), service.getPhone()));
         holder.tvTotalAmount.setText(String.format(context.getString(R.string.admin_service_totalamount), service.getTotal_amount()));
         holder.tvStatus.setText(String.format(context.getString(R.string.admin_service_status), service.getStatus()));
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                context.startActivity(new Intent(context, AdminUserEditActivity.class));
-            }
-        });
+
 
     }
 

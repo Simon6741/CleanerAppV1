@@ -2,6 +2,8 @@ package com.example.cleanerappv1.ui;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +35,8 @@ public class AdminBookingActivity extends AppCompatActivity {
     TextView txtServiceTitle;
     String viewType;
     ServiceListAdapter inProgressAdapter, historyAdapter;
+    RelativeLayout progressIndicator;
+
     private ArrayList<ServiceItem> inProgressList, historyList, rawList;
     private ArrayList<ServiceDetails> serviceDetailsList;
     private DatabaseReference databaseReference;
@@ -63,11 +67,13 @@ public class AdminBookingActivity extends AppCompatActivity {
     private void setupView() {
         txtServiceTitle = findViewById(R.id.txt_service_title);
         rvInProgress = findViewById(R.id.recycleViewProgress);
+        progressIndicator = findViewById(R.id.progress_service);
    //     rvHistory = findViewById(R.id.recyclerViewHistory);
     }
 
     private void initView() {
         txtServiceTitle.setText(viewType);
+        progressIndicator.setVisibility(View.VISIBLE);
     }
 
     private void setupAdapter() {
@@ -99,10 +105,11 @@ public class AdminBookingActivity extends AppCompatActivity {
                         serviceDetailsList.add(serviceDetails);
                     }
 
-                    Log.d("RAW", String.valueOf(serviceDetailsList.size()));
+
 
                     inProgressAdapter.notifyDataSetChanged();
-                    Log.d("RAW", String.valueOf(inProgressAdapter.getItemCount()));
+                    progressIndicator.setVisibility(View.GONE);
+
 
 //
 //                    if (rawList.isEmpty()) {
