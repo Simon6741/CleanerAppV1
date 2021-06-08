@@ -245,6 +245,8 @@
     <string name="edit_faq_title">Edit Faq</string>
 
     <string name="dialog_delete_user">User is deleted</string>
+    <string name="dialog_delete_ask_title">Delete User?</string>
+    <string name="dialog_delete_ask_user">Are you sure to delete this user?</string>
 
 
 

@@ -94,7 +94,22 @@ public class AdminUserEditActivity extends AppCompatActivity {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loginForDeleteUser();
+                AlertDialog alertDialog = new AlertDialog.Builder(AdminUserEditActivity.this)
+                        .setTitle(getString(R.string.dialog_delete_ask_title))
+                        .setMessage(getString(R.string.dialog_delete_ask_user))
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                               loginForDeleteUser();
+                            }
+                        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        }).show();
+
             }
         });
     }
