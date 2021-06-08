@@ -1,10 +1,12 @@
 package com.example.cleanerappv1.ui;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -39,6 +41,10 @@ import static com.example.cleanerappv1.util.Constant.INTENT_VIEWTYPE;
 import static com.example.cleanerappv1.util.Constant.START_FOR_RESULT;
 import static com.example.cleanerappv1.util.Constant.TYPE_CUSTOMER;
 
+import static com.example.cleanerappv1.util.Constant.INTENT_VIEWTYPE;
+import static com.example.cleanerappv1.util.Constant.START_FOR_RESULT;
+import static com.example.cleanerappv1.util.Constant.START_FOR_RESULT_FAQ_ADD;
+
 
 public class AdminFaqActivity extends AppCompatActivity implements FaqListAdapter.ItemClickListener {
 
@@ -61,6 +67,20 @@ public class AdminFaqActivity extends AppCompatActivity implements FaqListAdapte
         setupAdapter();
         setupData();
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == START_FOR_RESULT_FAQ_ADD){
+            Log.d("Enter","True");
+            if(resultCode == Activity.RESULT_OK){
+                Log.d("Enter","TrueTrue");
+                faqArrayList.clear();
+                setupData();
+            }
+        }
+        Log.d("Enter","False");
     }
 
     private void setupView() {

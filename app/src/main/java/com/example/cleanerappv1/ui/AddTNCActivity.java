@@ -1,16 +1,20 @@
 package com.example.cleanerappv1.ui;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cleanerappv1.R;
 import com.example.cleanerappv1.model.TNC;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -55,7 +59,22 @@ public class AddTNCActivity extends AppCompatActivity {
                 db = FirebaseDatabase.getInstance();
 
                 mDatabase = db.getReference("TermCondition");
-                mDatabase.child(timestamp).setValue(faq);
+                mDatabase.child(timestamp).setValue(faq).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        AlertDialog alertDialog = new AlertDialog.Builder(AddTNCActivity.this)
+                                .setTitle(getString(R.string.dialog_add_tnc))
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.dismiss();
+                                        Intent intent = new Intent();
+                                        setResult(Activity.RESULT_OK, intent);
+                                        finish();
+                                    }
+                                }).show();
+                    }
+                });
 
             }
         });

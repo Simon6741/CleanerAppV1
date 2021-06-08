@@ -19,6 +19,7 @@ public class Constant {
     public static final String TYPE_CLEANER = "Cleaner";
 
     public static final int START_FOR_RESULT = 1;
+    public static final int START_FOR_RESULT_FAQ_ADD = 2;
 
 
 }

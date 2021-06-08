@@ -1,10 +1,12 @@
 package com.example.cleanerappv1.ui;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import com.example.cleanerappv1.R;
@@ -25,6 +27,9 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import static com.example.cleanerappv1.util.Constant.INTENT_VIEWTYPE;
+import static com.example.cleanerappv1.util.Constant.START_FOR_RESULT;
 
 import static com.example.cleanerappv1.util.Constant.INTENT_FAQ_DESC;
 import static com.example.cleanerappv1.util.Constant.INTENT_FAQ_TITLE;
@@ -49,6 +54,18 @@ public class AdminTNCActivity extends AppCompatActivity implements TncListAdapte
         setOnclick();
         setupAdapter();
         setupData();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == START_FOR_RESULT){
+            if(resultCode == Activity.RESULT_OK){
+                tncArrayList.clear();
+                setupData();
+            }
+        }
     }
 
     private void setupView() {
@@ -105,7 +122,7 @@ public class AdminTNCActivity extends AppCompatActivity implements TncListAdapte
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), AddTNCActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, START_FOR_RESULT);
                 overridePendingTransition(0, 0);
 
             }
@@ -119,5 +136,6 @@ public class AdminTNCActivity extends AppCompatActivity implements TncListAdapte
         intent.putExtra(INTENT_FAQ_DESC,tncArrayList.get(position).getTerm());
         intent.putExtra(INTENT_ID,tncArrayList.get(position).getId());
         startActivityForResult(intent,START_FOR_RESULT);
+        overridePendingTransition(0, 0);
     }
 }

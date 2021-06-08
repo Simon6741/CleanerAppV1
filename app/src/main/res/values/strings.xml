@@ -248,6 +248,11 @@
     <string name="dialog_delete_ask_title">Delete User?</string>
     <string name="dialog_delete_ask_user">Are you sure to delete this user?</string>
 
+    <string name="dialog_add_faq">FAQ is added</string>
+    <string name="dialog_edit_faq">FAQ is edited</string>
+
+    <string name="dialog_add_tnc">Term is added</string>
+    <string name="dialog_edit_tnc">Term is edited</string>
 
 
 
