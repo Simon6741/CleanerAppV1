@@ -129,37 +129,6 @@ public class AdminBookingActivity extends AppCompatActivity {
             }
         });
 
-//        query.addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//
-//                if (snapshot.exists()) {
-//                    for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-//                        ServiceDetails serviceDetails = dataSnapshot.getValue(ServiceDetails.class);
-//                        serviceDetailsList.add(serviceDetails);
-//                        //setupCustomerDetails(serviceDetails);
-//                    }
-//
-//                    Log.d("RAW", String.valueOf(serviceDetailsList.size()));
-//
-//                    if(rawList.isEmpty()){
-//                        Toast.makeText(getApplicationContext(),"No Data Found", Toast.LENGTH_LONG).show();
-//                    } else {
-//
-//                  //      filterRawList();
-//                    }
-//
-//
-//                } else {
-//                    Toast.makeText(getApplicationContext(),"No Data Found", Toast.LENGTH_LONG).show();
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                Toast.makeText(getApplicationContext(),error.getDetails(), Toast.LENGTH_LONG).show();
-//            }
-//        });
     }
 
     private void setupCustomerDetails(ServiceDetails serviceDetails) {
@@ -184,59 +153,6 @@ public class AdminBookingActivity extends AppCompatActivity {
 
             }
         });
-//        if(serviceDetails.getCid() != null && serviceDetails.getCid() != ""){
-//            Log.d("Cleaner Out",serviceDetails.getCid());
-//            DatabaseReference dRrefCleaner = FirebaseDatabase.getInstance().getReference().child("Users").child(serviceDetails.getCid());
-//
-//            dRrefCleaner.addValueEventListener(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                 //   Log.d("Cleaner",snapshot.child("username").getValue().toString());
-//                cleanerName = snapshot.child("username").getValue().toString();
-//                cleanerContact = snapshot.child("contactNumber").getValue().toString();
-//                }
-//
-//                @Override
-//                public void onCancelled(@NonNull DatabaseError error) {
-//
-//                }
-//            });
-//        } else {
-//            Log.d("Cleaner","Empty");
-//            cleanerName = "";
-//            cleanerContact = "";
-//        }
-        Log.d("UserName3", service.getCustomerName());
-      //  rawList.add(service);
     }
 
-//    private void filterRawList() {
-////        historyList.clear();
-////        inProgressList.clear();
-//        for (ServiceItem serviceItem : rawList) {
-//            Log.d("Booking Type", serviceItem.getBookingStatus());
-//            if (serviceItem.getBookingStatus().equals(STATUS_COMPLETED) || serviceItem.getBookingStatus().equals(STATUS_RATED)) {
-//                historyList.add(serviceItem);
-//              // Log.d("Booking Type", serviceItem.getBookingStatus());
-//            } else {
-//                inProgressList.add(serviceItem);
-//            }
-//        }
-//
-//        Log.d("Histoy", String.valueOf(historyList.size()));
-//        Log.d("in progress", String.valueOf(inProgressList.size()));
-//
-//        for(ServiceItem service : historyList){
-//            Log.d("Histoy list", "YEs");
-//        }
-//
-//        for(ServiceItem serviceItem : inProgressList){
-//            Log.d("in progress list", "No");
-//        }
-//
-//
-////
-////        historyAdapter.notifyDataSetChanged();
-////        inProgressAdapter.notifyDataSetChanged();
-//    }
 }
