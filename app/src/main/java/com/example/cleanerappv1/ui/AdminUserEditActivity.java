@@ -1,9 +1,9 @@
 package com.example.cleanerappv1.ui;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -25,6 +25,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import static com.example.cleanerappv1.util.Constant.INTENT_CONTACT;
@@ -55,7 +56,7 @@ public class AdminUserEditActivity extends AppCompatActivity {
 
         viewType = getIntent().getStringExtra(INTENT_VIEWTYPE);
 
-        setTitle( viewType + " Details");
+        setTitle(viewType + " Details");
 
         contact = getIntent().getStringExtra(INTENT_CONTACT);
         email = getIntent().getStringExtra(INTENT_EMAIL);
@@ -89,48 +90,16 @@ public class AdminUserEditActivity extends AppCompatActivity {
 
     }
 
-    private void setOnClick(){
+    private void setOnClick() {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 loginForDeleteUser();
-//                DatabaseReference dRef = FirebaseDatabase.getInstance().getReference();
-//                Query query = dRef.child("Users").orderByChild("uid").equalTo(userId);
-//
-//
-//                query.addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-////                            dataSnapshot.getRef().removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-////                                @Override
-////                                public void onSuccess(Void unused) {
-////
-////                                }
-////                            });
-////                            Customer customer = dataSnapshot.getValue(Customer.class);
-////                            Log.d("Remove", customer.getEmailAddress());
-//                        }
-//
-//
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
-
-
-//                Intent intent = new Intent();
-//                intent.putExtra(INTENT_VIEWTYPE, viewType);
-//                setResult(Activity.RESULT_OK, intent);
-//                finish();
             }
         });
     }
 
-    private void loginForDeleteUser(){
+    private void loginForDeleteUser() {
         firebaseAuth.signInWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
@@ -138,13 +107,52 @@ public class AdminUserEditActivity extends AppCompatActivity {
                 user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
-                        Toast.makeText(AdminUserEditActivity.this, "User is deleted:", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(AdminUserEditActivity.this, "Failed to delete user!", Toast.LENGTH_SHORT).show();
+                        if (task.isSuccessful()) {
+                            deleteUser();
+                        } else {
+                            Toast.makeText(AdminUserEditActivity.this, "Failed to delete user!", Toast.LENGTH_SHORT).show();
+                        }
                     }
-                }
                 });
+            }
+        });
+    }
+
+    private void deleteUser() {
+        DatabaseReference dRef = FirebaseDatabase.getInstance().getReference();
+        Query query = dRef.child("Users").orderByChild("uid").equalTo(userId);
+
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    dataSnapshot.getRef().removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            AlertDialog alertDialog = new AlertDialog.Builder(AdminUserEditActivity.this)
+                                    .setTitle(getString(R.string.dialog_delete_user))
+                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            dialogInterface.dismiss();
+                                            Intent intent = new Intent();
+                                            intent.putExtra(INTENT_VIEWTYPE, viewType);
+                                            setResult(Activity.RESULT_OK, intent);
+                                            finish();
+                                        }
+                                    }).show();
+                            //Toast.makeText(AdminUserEditActivity.this, "User is deleted:", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+//                            Customer customer = dataSnapshot.getValue(Customer.class);
+//                          Log.d("Remove", customer.getEmailAddress());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
     }
