@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.cleanerappv1.R;
 import com.example.cleanerappv1.ui.AdminUserEditActivity;
 import com.example.cleanerappv1.model.Customer;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -56,6 +57,7 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
         holder.tv_name.setText(customer.getUsername());
         holder.tv_contact.setText(customer.getContactNumber());
         holder.tv_email.setText(customer.getEmailAddress());
+        Picasso.get().load(R.drawable.ic_profile_placedholder).placeholder(R.drawable.ic_profile_placedholder).into(holder.imgView_profile);
 
 //        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
 //            @Override

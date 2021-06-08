@@ -1,20 +1,21 @@
 package com.example.cleanerappv1.model;
 
 public class TNC {
-    private String term;
+
+    private String Term;
 
     public TNC(String term) {
-        this.term = term;
+        Term = term;
     }
 
     public TNC() {
     }
 
     public String getTerm() {
-        return term;
+        return Term;
     }
 
     public void setTerm(String term) {
-        this.term = term;
+        Term = term;
     }
 }

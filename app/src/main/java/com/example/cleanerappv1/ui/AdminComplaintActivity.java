@@ -71,7 +71,7 @@ public class AdminComplaintActivity extends AppCompatActivity {
                         Complain complain = dataSnapshot.getValue(Complain.class);
                         complainArrayList.add(complain);
                     }
-  //                  Log.d("complaint", String.valueOf(complainArrayList.size()));
+                    //                  Log.d("complaint", String.valueOf(complainArrayList.size()));
 
                     complaintListAdapter.notifyDataSetChanged();
 

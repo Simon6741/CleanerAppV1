@@ -17,6 +17,7 @@
            android:layout_height="wrap_content"
            android:gravity="left"
            android:textColor="@color/black"
+           android:text = "@string/faq_question"
            android:textSize="16dp"/>
 
        <TextView
@@ -24,7 +25,9 @@
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:gravity="left"
+           android:layout_marginTop="10dp"
            android:textColor="@color/black"
+           android:text="@string/faq_ans"
            android:textSize="16dp"/>
 
        <View

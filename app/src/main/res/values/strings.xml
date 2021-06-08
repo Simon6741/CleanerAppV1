@@ -239,6 +239,11 @@
     <string name="faq_title_placeholder">Faq Title</string>
     <string name="username_title">Username : %s</string>
 
+    <string name="faq_question">Questions : %s</string>
+    <string name="faq_ans">Ans : %s</string>
+
+    <string name="edit_faq_title">Edit Faq</string>
+
 
 
 

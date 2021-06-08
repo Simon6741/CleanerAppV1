@@ -12,6 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.cleanerappv1.R;
 import com.example.cleanerappv1.model.Complain;
 import com.example.cleanerappv1.model.FAQ;
+import com.example.cleanerappv1.ui.ActivityEditFAQ;
+import android.content.Intent;
+
+
+
 
 import java.util.ArrayList;
 
@@ -43,8 +48,17 @@ public class FaqListAdapter extends RecyclerView.Adapter<FaqListAdapter.Holder> 
         //get data (need to modify-based on class name-that contain set and get)
         FAQ faq = faqArrayList.get(position);
 
-        holder.tv_faq_title.setText(faq.getTitle());
-        holder.tv_faq_desc.setText(faq.getDetail());
+        holder.tv_faq_title.setText(String.format(context.getString(R.string.faq_question), faq.getTitle()));
+        holder.tv_faq_desc.setText(String.format(context.getString(R.string.faq_ans), faq.getDetail()));
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                context.startActivity(new Intent(context, ActivityEditFAQ.class));
+            }
+        });
+
     }
 
     @Override

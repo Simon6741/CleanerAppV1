@@ -51,7 +51,7 @@ public class CleanerListAdapter extends RecyclerView.Adapter<CleanerListAdapter.
 
         //set data (need to modify)
         //holder.tc_content.setText(cleanerComplaint.getReason());
-        Picasso.get().load(cleaner.getImage()).into(holder.imgView_profile);
+        Picasso.get().load(cleaner.getImage()).placeholder(R.drawable.ic_profile_placedholder).into(holder.imgView_profile);
         holder.tv_name.setText(cleaner.getUsername());
         holder.tv_contact.setText(cleaner.getContactNumber());
         holder.tv_email.setText(cleaner.getEmailAddress());

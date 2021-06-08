@@ -20,6 +20,8 @@
         <activity android:name=".ui.AdminUserListActivity"/>
         <activity android:name=".ui.AdminUserEditActivity" />
         <activity android:name=".admin_cleaner" />
+        <activity android:name=".ui.ActivityEditFAQ" />
+        <activity android:name=".ui.ActivityEditTerm" />
         <activity android:name=".admin_user" />
         <activity android:name=".ui.AdminBookingActivity" />
         <activity android:name=".ui.AdminComplaintActivity" />
