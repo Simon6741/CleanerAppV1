@@ -26,6 +26,19 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import static com.example.cleanerappv1.util.Constant.INTENT_CONTACT;
+import static com.example.cleanerappv1.util.Constant.INTENT_EMAIL;
+import static com.example.cleanerappv1.util.Constant.INTENT_FAQ_DESC;
+import static com.example.cleanerappv1.util.Constant.INTENT_FAQ_TITLE;
+import static com.example.cleanerappv1.util.Constant.INTENT_ID;
+import static com.example.cleanerappv1.util.Constant.INTENT_NAME;
+import static com.example.cleanerappv1.util.Constant.INTENT_PASSWORD;
+import static com.example.cleanerappv1.util.Constant.INTENT_USERNAME;
+import static com.example.cleanerappv1.util.Constant.INTENT_USER_ID;
+import static com.example.cleanerappv1.util.Constant.INTENT_VIEWTYPE;
+import static com.example.cleanerappv1.util.Constant.START_FOR_RESULT;
+import static com.example.cleanerappv1.util.Constant.TYPE_CUSTOMER;
+
 
 public class AdminFaqActivity extends AppCompatActivity implements FaqListAdapter.ItemClickListener {
 
@@ -115,6 +128,11 @@ public class AdminFaqActivity extends AppCompatActivity implements FaqListAdapte
 
     @Override
     public void onItemClick(int position) {
-        startActivity(new Intent(this, ActivityEditFAQ.class));
+
+        Intent intent = new Intent(this, ActivityEditFAQ.class);
+        intent.putExtra(INTENT_FAQ_TITLE,faqArrayList.get(position).getTitle());
+        intent.putExtra(INTENT_FAQ_DESC,faqArrayList.get(position).getDetail());
+        intent.putExtra(INTENT_ID,faqArrayList.get(position).getId());
+        startActivityForResult(intent,START_FOR_RESULT);
     }
 }

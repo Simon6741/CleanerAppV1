@@ -48,8 +48,9 @@ public class AddTNCActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 title = et_title.getText().toString();
-                TNC faq = new TNC(title);
                 final String timestamp = "" + System.currentTimeMillis();
+
+                TNC faq = new TNC(title,timestamp);
 
                 db = FirebaseDatabase.getInstance();
 
@@ -60,7 +61,6 @@ public class AddTNCActivity extends AppCompatActivity {
         });
 
     }
-
 
 
 }

@@ -26,6 +26,11 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import static com.example.cleanerappv1.util.Constant.INTENT_FAQ_DESC;
+import static com.example.cleanerappv1.util.Constant.INTENT_FAQ_TITLE;
+import static com.example.cleanerappv1.util.Constant.INTENT_ID;
+import static com.example.cleanerappv1.util.Constant.START_FOR_RESULT;
+
 public class AdminTNCActivity extends AppCompatActivity implements TncListAdapter.ItemClickListener {
 
     Button btnAdd;
@@ -110,6 +115,9 @@ public class AdminTNCActivity extends AppCompatActivity implements TncListAdapte
 
     @Override
     public void onItemClick(int position) {
-        startActivity(new Intent(this, ActivityEditTerm.class));
+        Intent intent = new Intent(this, ActivityEditTerm.class);
+        intent.putExtra(INTENT_FAQ_DESC,tncArrayList.get(position).getTerm());
+        intent.putExtra(INTENT_ID,tncArrayList.get(position).getId());
+        startActivityForResult(intent,START_FOR_RESULT);
     }
 }

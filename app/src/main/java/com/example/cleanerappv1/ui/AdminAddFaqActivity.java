@@ -47,8 +47,9 @@ public class AdminAddFaqActivity extends AppCompatActivity {
                 title = et_title.getText().toString();
                 details = et_details.getText().toString();
 
-                FAQ faq = new FAQ(title,details);
                 final String timestamp = "" + System.currentTimeMillis();
+
+                FAQ faq = new FAQ(title,details,timestamp);
 
                 db = FirebaseDatabase.getInstance();
 

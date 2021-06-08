@@ -4,10 +4,12 @@ public class FAQ {
 
     private String Title;
     private String detail;
+    private String id;
 
-    public FAQ(String title, String detail) {
+    public FAQ(String title, String detail, String id) {
         Title = title;
         this.detail = detail;
+        this.id = id;
     }
 
     public FAQ() {
@@ -27,5 +29,13 @@ public class FAQ {
 
     public void setDetail(String detail) {
         this.detail = detail;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
