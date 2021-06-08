@@ -9,7 +9,7 @@ import com.example.cleanerappv1.R;
 import android.view.View;
 import android.widget.Button;
 
-public class admin_term extends AppCompatActivity {
+public class AdminTNCActivity extends AppCompatActivity {
 
     Button btnAdd;
 
@@ -32,7 +32,7 @@ public class admin_term extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ActivityAddTerm.class);
+                Intent intent = new Intent(getApplicationContext(), AddTNCActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
 

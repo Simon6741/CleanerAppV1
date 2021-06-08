@@ -1,6 +1,7 @@
 package com.example.cleanerappv1.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.cleanerappv1.R;
+import com.example.cleanerappv1.ui.admin_user_edit;
 import com.example.cleanerappv1.model.Cleaner;
 import com.squareup.picasso.Picasso;
 
@@ -48,6 +50,13 @@ public class CleanerListAdapter extends RecyclerView.Adapter<CleanerListAdapter.
         holder.tv_name.setText(cleaner.getUsername());
         holder.tv_contact.setText(cleaner.getContactNumber());
         holder.tv_email.setText(cleaner.getEmailAddress());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                context.startActivity(new Intent(context, admin_user_edit.class));
+            }
+        });
     }
 
     @Override

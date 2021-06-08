@@ -1,18 +1,15 @@
 package com.example.cleanerappv1.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.util.Log;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.cleanerappv1.R;
+import com.example.cleanerappv1.ui.admin_user_edit;
 import com.example.cleanerappv1.model.Customer;
 
 import java.util.ArrayList;
@@ -34,7 +31,6 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
     public CustomerListAdapter(Context context, ArrayList<Customer> customers) {
         this.context = context;
         this.customerList = customers;
-
     }
 
     @NonNull
@@ -58,12 +54,13 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
         holder.tv_contact.setText(customer.getContactNumber());
         holder.tv_email.setText(customer.getEmailAddress());
 
-        holder.itemLayout.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("Set", "Yes");
+                context.startActivity(new Intent(context, admin_user_edit.class));
             }
         });
+
     }
 
     @Override
@@ -77,7 +74,7 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
         TextView tv_contact;
         TextView tv_email;
         ImageView imgView_profile;
-        RelativeLayout itemLayout;
+
 
         public Holder(@NonNull View itemView) {
             super(itemView);
@@ -85,13 +82,18 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
             tv_contact = itemView.findViewById(R.id.tv_contact_no);
             tv_email = itemView.findViewById(R.id.tv_email);
             imgView_profile = itemView.findViewById(R.id.imgViewUser);
-            itemLayout = itemView.findViewById(R.id.layout_item);
 
 
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    mListener.onItemClick(getAdapterPosition());
+//                }
+//            });
         }
     }
 
     public interface ItemClickListener{
-        void onItemClick(int position, Customer customer);
+        void onItemClick(int position);
     }
 }

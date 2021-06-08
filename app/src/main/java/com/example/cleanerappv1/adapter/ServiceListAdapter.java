@@ -1,29 +1,21 @@
 package com.example.cleanerappv1.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.util.Log;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.cleanerappv1.R;
+import com.example.cleanerappv1.ui.admin_user_edit;
 import com.example.cleanerappv1.model.Customer;
 import com.example.cleanerappv1.model.ServiceDetails;
-import com.example.cleanerappv1.model.ServiceItem;
 
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import static com.example.cleanerappv1.util.Constant.STATUS_COMPLETED;
-import static com.example.cleanerappv1.util.Constant.STATUS_RATED;
 
 
 public class ServiceListAdapter extends RecyclerView.Adapter<ServiceListAdapter.Holder>{
@@ -61,6 +53,12 @@ public class ServiceListAdapter extends RecyclerView.Adapter<ServiceListAdapter.
         holder.tvPhone.setText(String.format(context.getString(R.string.admin_service_phone), service.getPhone()));
         holder.tvTotalAmount.setText(String.format(context.getString(R.string.admin_service_totalamount), service.getTotal_amount()));
         holder.tvStatus.setText(String.format(context.getString(R.string.admin_service_status), service.getStatus()));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                context.startActivity(new Intent(context, admin_user_edit.class));
+            }
+        });
 
     }
 

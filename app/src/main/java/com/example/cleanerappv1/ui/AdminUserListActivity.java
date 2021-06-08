@@ -32,7 +32,7 @@ import java.util.ArrayList;
 
 
 
-public class AdminUserListActivity extends AppCompatActivity{
+public class AdminUserListActivity extends AppCompatActivity implements CustomerListAdapter.ItemClickListener {
     //TextView txtUserType;
     String userType;
     TextView txtUserType;
@@ -70,10 +70,11 @@ public class AdminUserListActivity extends AppCompatActivity{
         recyclerViewUserList.setHasFixedSize(true);
         recyclerViewUserList.setLayoutManager(new LinearLayoutManager(this));
 
-        if(userType == "Customer"){
+        if(userType.equals("Customer")){
             customerListAdapter = new CustomerListAdapter(this, customerArrayList);
             recyclerViewUserList.setAdapter(customerListAdapter);
-        } else {
+        }
+        else {
             cleanerListAdapter = new CleanerListAdapter(this, cleanerArrayList);
             recyclerViewUserList.setAdapter(cleanerListAdapter);
         }
@@ -88,13 +89,14 @@ public class AdminUserListActivity extends AppCompatActivity{
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Log.d("customer", "Hello3");
                 if (snapshot.exists()) {
-                    if(userType == "Customer"){
+                    if(userType.equals("Customer")){
                         for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                             Customer customer = dataSnapshot.getValue(Customer.class);
                             customerArrayList.add(customer);
                         }
                         customerListAdapter.notifyDataSetChanged();
-                    } else {
+                    }
+                    else {
                         for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                             Cleaner cleaner = dataSnapshot.getValue(Cleaner.class);
                             cleanerArrayList.add(cleaner);
@@ -113,5 +115,10 @@ public class AdminUserListActivity extends AppCompatActivity{
         });
     }
 
+    @Override
+    public void onItemClick(int position) {
+        Toast.makeText(this, customerArrayList.get(position).getUsername(), Toast.LENGTH_LONG);
+
+    }
 }
 

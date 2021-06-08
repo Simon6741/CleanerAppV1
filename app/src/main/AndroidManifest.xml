@@ -16,15 +16,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CleanerAppV1">
         <activity android:name=".admin_view_faq"></activity>
-        <activity android:name=".ui.admin_add_faq" />
+        <activity android:name=".ui.AdminAddFaqActivity" />
         <activity android:name=".ui.AdminUserListActivity"/>
-        <activity android:name=".admin_user_edit" />
+        <activity android:name=".ui.admin_user_edit" />
         <activity android:name=".admin_cleaner" />
         <activity android:name=".admin_user" />
         <activity android:name=".ui.AdminBookingActivity" />
-        <activity android:name=".ui.admin_complaint" />
-        <activity android:name=".ui.admin_term" />
-        <activity android:name=".ui.admin_faq" />
+        <activity android:name=".ui.AdminComplaintActivity" />
+        <activity android:name=".ui.AdminTNCActivity" />
+        <activity android:name=".ui.AdminFaqActivity" />
         <activity android:name=".ui.AdminSettingActivity" />
         <activity android:name=".ui.AdminViewUserActivity" />
         <activity android:name=".adminhome" />
@@ -58,7 +58,7 @@
         <activity android:name=".customer_main" />
         <activity android:name=".register_customer" />
         <activity android:name=".register_main" />
-        <activity android:name=".ui.ActivityAddTerm"/>
+        <activity android:name=".ui.AddTNCActivity"/>
 
         <activity android:name=".MainActivity">
 

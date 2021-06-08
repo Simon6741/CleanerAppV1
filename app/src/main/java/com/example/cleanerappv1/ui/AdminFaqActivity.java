@@ -9,9 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.cleanerappv1.R;
-import com.example.cleanerappv1.adapter.ComplaintListAdapter;
 import com.example.cleanerappv1.adapter.FaqListAdapter;
-import com.example.cleanerappv1.model.Complain;
 import com.example.cleanerappv1.model.FAQ;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,7 +27,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 
-public class admin_faq extends AppCompatActivity {
+public class AdminFaqActivity extends AppCompatActivity {
 
     Button btnAdd;
     RecyclerView rvFaq;
@@ -104,7 +102,7 @@ public class admin_faq extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), admin_add_faq.class);
+                Intent intent = new Intent(getApplicationContext(), AdminAddFaqActivity.class);
 //                intent.putExtra("viewType", "Customer");
                 startActivity(intent);
 

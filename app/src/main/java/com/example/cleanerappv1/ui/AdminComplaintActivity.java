@@ -25,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class admin_complaint extends AppCompatActivity {
+public class AdminComplaintActivity extends AppCompatActivity {
 
     RecyclerView rvComplaint;
     ComplaintListAdapter complaintListAdapter;

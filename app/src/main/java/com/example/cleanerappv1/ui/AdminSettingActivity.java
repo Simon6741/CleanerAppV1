@@ -61,7 +61,7 @@ public class AdminSettingActivity extends AppCompatActivity {
         btnFAQ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =  new Intent(getApplicationContext(), admin_faq.class);
+                Intent intent =  new Intent(getApplicationContext(), AdminFaqActivity.class);
 //                intent.putExtra("viewType", "Customer");
                 startActivity(intent);
 
@@ -72,7 +72,7 @@ public class AdminSettingActivity extends AppCompatActivity {
         this.btnComplaint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =  new Intent(getApplicationContext(), admin_complaint.class);
+                Intent intent =  new Intent(getApplicationContext(), AdminComplaintActivity.class);
                 startActivity(intent);
 
                 overridePendingTransition(0,0);
@@ -82,7 +82,7 @@ public class AdminSettingActivity extends AppCompatActivity {
         this.btnTNC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =  new Intent(getApplicationContext(), admin_term.class);
+                Intent intent =  new Intent(getApplicationContext(), AdminTNCActivity.class);
                 startActivity(intent);
 
                 overridePendingTransition(0,0);
