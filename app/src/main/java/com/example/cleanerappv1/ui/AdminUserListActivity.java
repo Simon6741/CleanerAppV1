@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,6 +57,8 @@ public class AdminUserListActivity extends AppCompatActivity implements Customer
     private CleanerListAdapter cleanerListAdapter;
     private CustomerListAdapter customerListAdapter;
 
+    RelativeLayout progressIndicator;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,9 +90,11 @@ public class AdminUserListActivity extends AppCompatActivity implements Customer
     private void setupView(){
         txtUserType = findViewById(R.id.txt_userType);
         recyclerViewUserList = findViewById(R.id.recyclerViewUser);
+        progressIndicator = findViewById(R.id.progress_indicator);
 
         userType = getIntent().getStringExtra("viewType");
         txtUserType.setText(userType);
+
 
     }
 
@@ -107,6 +113,7 @@ public class AdminUserListActivity extends AppCompatActivity implements Customer
     }
 
     private void setupData(){
+        progressIndicator.setVisibility(View.VISIBLE);
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
         Query query = databaseReference.child("Users").orderByChild("userType").equalTo(userType);
@@ -123,6 +130,7 @@ public class AdminUserListActivity extends AppCompatActivity implements Customer
                         }
                         Log.d("Customer", String.valueOf(customerArrayList.size()));
                         customerListAdapter.notifyDataSetChanged();
+                        progressIndicator.setVisibility(View.GONE);
                     }
                     else {
                         for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
@@ -131,6 +139,7 @@ public class AdminUserListActivity extends AppCompatActivity implements Customer
                         }
                         Log.d("Cleaner", String.valueOf(cleanerArrayList.size()));
                         cleanerListAdapter.notifyDataSetChanged();
+                        progressIndicator.setVisibility(View.GONE);
                     }
                 } else {
                     Toast.makeText(getApplicationContext(),"No Data Found", Toast.LENGTH_LONG).show();

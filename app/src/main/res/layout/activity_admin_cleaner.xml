@@ -64,5 +64,10 @@
 
     </LinearLayout>
 
+    <include
+        android:id="@+id/progress_indicator"
+        layout="@layout/tool_progress_indicator"
+        android:visibility="invisible"/>
+
 
 </RelativeLayout>

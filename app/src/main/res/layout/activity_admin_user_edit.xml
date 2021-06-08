@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="20dp"
+
     tools:context=".ui.AdminUserEditActivity">
 
     <LinearLayout
@@ -69,9 +69,16 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         android:gravity="center|center_vertical"
         android:backgroundTint="@color/white"
         android:textColor="@android:color/black"
         android:text="@string/btn_delete" />
+
+    <include
+        android:id="@+id/progress_indicator"
+        layout="@layout/tool_progress_indicator"
+        android:visibility="invisible"/>
+
 
 </RelativeLayout>

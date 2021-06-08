@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,7 @@ public class AdminUserEditActivity extends AppCompatActivity {
     Button btnDelete;
     Customer user;
     String contact, email, name, userId, username, password;
+    RelativeLayout progressIndicator;
 
 
     @Override
@@ -82,6 +84,7 @@ public class AdminUserEditActivity extends AppCompatActivity {
         tvEmail = findViewById(R.id.tv_edit_email);
         tvContact = findViewById(R.id.tv_edit_contact_no);
         btnDelete = findViewById(R.id.user_delete);
+        progressIndicator = findViewById(R.id.progress_indicator);
 
         tvUsername.setText(String.format(getString(R.string.username_title), username));
         tvName.setText(String.format(getString(R.string.user_name), name));
@@ -101,6 +104,7 @@ public class AdminUserEditActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();
+                                progressIndicator.setVisibility(View.VISIBLE);
                                loginForDeleteUser();
                             }
                         }).setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -144,6 +148,7 @@ public class AdminUserEditActivity extends AppCompatActivity {
                     dataSnapshot.getRef().removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
+                            progressIndicator.setVisibility(View.GONE);
                             AlertDialog alertDialog = new AlertDialog.Builder(AdminUserEditActivity.this)
                                     .setTitle(getString(R.string.dialog_delete_user))
                                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {

@@ -41,11 +41,6 @@ public class AdminBookingActivity extends AppCompatActivity {
     private ArrayList<ServiceDetails> serviceDetailsList;
     private DatabaseReference databaseReference;
 
-    String userName, userContact, userEmail, cleanerName, cleanerContact;
-    ServiceItem service;
-
-    int i = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,27 +68,22 @@ public class AdminBookingActivity extends AppCompatActivity {
 
     private void initView() {
         txtServiceTitle.setText(viewType);
-        progressIndicator.setVisibility(View.VISIBLE);
+
     }
 
     private void setupAdapter() {
         rvInProgress.setHasFixedSize(true);
-       // rvInProgress.setNestedScrollingEnabled(false);
+
         rvInProgress.setLayoutManager(new LinearLayoutManager(this));
 
         inProgressAdapter = new ServiceListAdapter(this, serviceDetailsList);
         rvInProgress.setAdapter(inProgressAdapter);
 
-//        rvHistory.setHasFixedSize(true);
-//        rvHistory.setNestedScrollingEnabled(false);
-//        rvHistory.setLayoutManager(new LinearLayoutManager(this));
-//
-//        historyAdapter = new ServiceListAdapter(this, historyList);
-//        rvHistory.setAdapter(historyAdapter);
 
     }
 
     private void setupData() {
+        progressIndicator.setVisibility(View.VISIBLE);
         databaseReference = FirebaseDatabase.getInstance().getReference();
         Query query = databaseReference.child("CustomerBookings").orderByChild("service").equalTo(viewType);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -110,15 +100,6 @@ public class AdminBookingActivity extends AppCompatActivity {
                     inProgressAdapter.notifyDataSetChanged();
                     progressIndicator.setVisibility(View.GONE);
 
-
-//
-//                    if (rawList.isEmpty()) {
-//                        Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_LONG).show();
-//                    } else {
-//                        filterRawList();
-//                    }
-
-
                 }
 
             }
@@ -131,28 +112,5 @@ public class AdminBookingActivity extends AppCompatActivity {
 
     }
 
-    private void setupCustomerDetails(ServiceDetails serviceDetails) {
-        DatabaseReference dRrefUser = FirebaseDatabase.getInstance().getReference().child("Users").child(serviceDetails.getUid());
-
-        dRrefUser.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                userName = snapshot.child("username").getValue().toString();
-                userEmail = snapshot.child("emailAddress").getValue().toString();
-                userContact = snapshot.child("contactNumber").getValue().toString();
-                Log.d("UserName", userName);
-
-                service = new ServiceItem(userName, userEmail, userContact, cleanerName, cleanerContact, serviceDetails.getStatus());
-                Log.d("UserName2", service.getCustomerName());
-                //rawList.add(service);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
 
 }
