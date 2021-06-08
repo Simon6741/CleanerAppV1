@@ -168,6 +168,7 @@ public class AdminUserEditActivity extends AppCompatActivity {
 //                            Customer customer = dataSnapshot.getValue(Customer.class);
 //                          Log.d("Remove", customer.getEmailAddress());
                 }
+
             }
 
             @Override
@@ -175,5 +176,6 @@ public class AdminUserEditActivity extends AppCompatActivity {
 
             }
         });
+        progressIndicator.setVisibility(View.GONE);
     }
 }

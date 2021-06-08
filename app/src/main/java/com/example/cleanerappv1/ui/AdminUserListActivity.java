@@ -151,6 +151,7 @@ public class AdminUserListActivity extends AppCompatActivity implements Customer
                 Toast.makeText(getApplicationContext(),error.getDetails(), Toast.LENGTH_LONG).show();
             }
         });
+        progressIndicator.setVisibility(View.GONE);
     }
 
     @Override

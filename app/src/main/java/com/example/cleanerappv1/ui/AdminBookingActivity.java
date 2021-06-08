@@ -95,12 +95,9 @@ public class AdminBookingActivity extends AppCompatActivity {
                         serviceDetailsList.add(serviceDetails);
                     }
 
-
-
                     inProgressAdapter.notifyDataSetChanged();
-                    progressIndicator.setVisibility(View.GONE);
-
                 }
+                progressIndicator.setVisibility(View.GONE);
 
             }
 
@@ -111,6 +108,8 @@ public class AdminBookingActivity extends AppCompatActivity {
         });
 
     }
+
+
 
 
 }
