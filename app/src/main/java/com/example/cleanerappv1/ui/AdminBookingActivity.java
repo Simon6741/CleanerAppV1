@@ -38,6 +38,7 @@ public class AdminBookingActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
 
     String userName, userContact, userEmail, cleanerName, cleanerContact;
+    ServiceItem service;
 
     int i = 0;
 
@@ -50,6 +51,8 @@ public class AdminBookingActivity extends AppCompatActivity {
         historyList = new ArrayList<>();
         rawList = new ArrayList<>();
 
+        serviceDetailsList = new ArrayList<>();
+
         viewType = getIntent().getStringExtra(INTENT_VIEWTYPE);
         setupView();
         initView();
@@ -60,7 +63,7 @@ public class AdminBookingActivity extends AppCompatActivity {
     private void setupView() {
         txtServiceTitle = findViewById(R.id.txt_service_title);
         rvInProgress = findViewById(R.id.recycleViewProgress);
-        rvHistory = findViewById(R.id.recyclerViewUser);
+   //     rvHistory = findViewById(R.id.recyclerViewHistory);
     }
 
     private void initView() {
@@ -69,18 +72,18 @@ public class AdminBookingActivity extends AppCompatActivity {
 
     private void setupAdapter() {
         rvInProgress.setHasFixedSize(true);
-        rvInProgress.setNestedScrollingEnabled(false);
+       // rvInProgress.setNestedScrollingEnabled(false);
         rvInProgress.setLayoutManager(new LinearLayoutManager(this));
 
-        inProgressAdapter = new ServiceListAdapter(this, rawList);
+        inProgressAdapter = new ServiceListAdapter(this, serviceDetailsList);
         rvInProgress.setAdapter(inProgressAdapter);
 
-        rvHistory.setHasFixedSize(true);
-        rvHistory.setNestedScrollingEnabled(false);
-        rvHistory.setLayoutManager(new LinearLayoutManager(this));
-
-        historyAdapter = new ServiceListAdapter(this, historyList);
-        rvHistory.setAdapter(historyAdapter);
+//        rvHistory.setHasFixedSize(true);
+//        rvHistory.setNestedScrollingEnabled(false);
+//        rvHistory.setLayoutManager(new LinearLayoutManager(this));
+//
+//        historyAdapter = new ServiceListAdapter(this, historyList);
+//        rvHistory.setAdapter(historyAdapter);
 
     }
 
@@ -93,20 +96,20 @@ public class AdminBookingActivity extends AppCompatActivity {
                 if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         ServiceDetails serviceDetails = dataSnapshot.getValue(ServiceDetails.class);
-                        setupCustomerDetails(serviceDetails);
-//                        Log.d("Booking Id", serviceDetails.getBooking_id());
-//                        Log.d("Data", serviceDetails.getUid());
+                        serviceDetailsList.add(serviceDetails);
+                    }
+
+                    Log.d("RAW", String.valueOf(serviceDetailsList.size()));
+
+                    inProgressAdapter.notifyDataSetChanged();
+                    Log.d("RAW", String.valueOf(inProgressAdapter.getItemCount()));
+
 //
-//                        Log.d("Data", serviceDetails.getCid());
-                    }
-
-                    Log.d("RAW", String.valueOf(rawList.size()));
-
-                    if (rawList.isEmpty()) {
-                        Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_LONG).show();
-                    } else {
-                        filterRawList();
-                    }
+//                    if (rawList.isEmpty()) {
+//                        Toast.makeText(getApplicationContext(), "No Data Found", Toast.LENGTH_LONG).show();
+//                    } else {
+//                        filterRawList();
+//                    }
 
 
                 }
@@ -155,7 +158,6 @@ public class AdminBookingActivity extends AppCompatActivity {
     private void setupCustomerDetails(ServiceDetails serviceDetails) {
         DatabaseReference dRrefUser = FirebaseDatabase.getInstance().getReference().child("Users").child(serviceDetails.getUid());
 
-
         dRrefUser.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -163,7 +165,11 @@ public class AdminBookingActivity extends AppCompatActivity {
                 userName = snapshot.child("username").getValue().toString();
                 userEmail = snapshot.child("emailAddress").getValue().toString();
                 userContact = snapshot.child("contactNumber").getValue().toString();
-                Log.d("UserName", snapshot.child("username").getValue().toString());
+                Log.d("UserName", userName);
+
+                service = new ServiceItem(userName, userEmail, userContact, cleanerName, cleanerContact, serviceDetails.getStatus());
+                Log.d("UserName2", service.getCustomerName());
+                //rawList.add(service);
             }
 
             @Override
@@ -193,30 +199,37 @@ public class AdminBookingActivity extends AppCompatActivity {
 //            cleanerName = "";
 //            cleanerContact = "";
 //        }
-
-
-        ServiceItem service = new ServiceItem(userName, userEmail, userContact, cleanerName, cleanerContact, serviceDetails.getStatus());
-        rawList.add(service);
+        Log.d("UserName3", service.getCustomerName());
+      //  rawList.add(service);
     }
 
-    private void filterRawList() {
-//        historyList.clear();
-//        inProgressList.clear();
-        for (ServiceItem serviceItem : rawList) {
-            Log.d("Booking Type", serviceItem.getBookingStatus());
-            if (serviceItem.getBookingStatus().equals(STATUS_COMPLETED) || serviceItem.getBookingStatus().equals(STATUS_RATED)) {
-                historyList.add(serviceItem);
-            } else {
-                inProgressList.add(serviceItem);
-            }
-        }
-
-        Log.d("Histoy", String.valueOf(historyList.size()));
-        Log.d("in progress", String.valueOf(inProgressList.size()));
-
-
-
-        historyAdapter.notifyDataSetChanged();
-        inProgressAdapter.notifyDataSetChanged();
-    }
+//    private void filterRawList() {
+////        historyList.clear();
+////        inProgressList.clear();
+//        for (ServiceItem serviceItem : rawList) {
+//            Log.d("Booking Type", serviceItem.getBookingStatus());
+//            if (serviceItem.getBookingStatus().equals(STATUS_COMPLETED) || serviceItem.getBookingStatus().equals(STATUS_RATED)) {
+//                historyList.add(serviceItem);
+//              // Log.d("Booking Type", serviceItem.getBookingStatus());
+//            } else {
+//                inProgressList.add(serviceItem);
+//            }
+//        }
+//
+//        Log.d("Histoy", String.valueOf(historyList.size()));
+//        Log.d("in progress", String.valueOf(inProgressList.size()));
+//
+//        for(ServiceItem service : historyList){
+//            Log.d("Histoy list", "YEs");
+//        }
+//
+//        for(ServiceItem serviceItem : inProgressList){
+//            Log.d("in progress list", "No");
+//        }
+//
+//
+////
+////        historyAdapter.notifyDataSetChanged();
+////        inProgressAdapter.notifyDataSetChanged();
+//    }
 }

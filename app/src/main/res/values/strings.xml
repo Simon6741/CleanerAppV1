@@ -202,9 +202,17 @@
     <string name="admin_user_customer">Customer</string>
     <string name="admin_user_cleaner">Cleaner</string>
 
-    <string name="customer_name">Customer: %s</string>
-    <string name="cleaner_name">Cleaner: %s</string>
-    <string name="cleaner_contact">Cleaner Contact: %s</string>
+    <string name="admin_service_bookingId">Booking ID: %s</string>
+    <string name="admin_service_date">Date: %s</string>
+    <string name="admin_service_time">Time: %s</string>
+    <string name="admin_service_address">Address: %s</string>
+    <string name="admin_service_phone">Phone: %s</string>
+    <string name="admin_service_totalamount">Total Amount: RM%s</string>
+    <string name="admin_service_status">Status: %s</string>
+
+<!--    <string name="customer_name">Booking ID: %s</string>-->
+<!--    <string name="cleaner_name">Cleaner: %s</string>-->
+<!--    <string name="cleaner_contact">Cleaner Contact: %s</string>-->
 
     <string name="booking_list">Booking List</string>
     <string name="in_progress">In Progress</string>
