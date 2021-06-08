@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +31,8 @@ public class AddTNCActivity extends AppCompatActivity {
     String title;
     private FirebaseDatabase db;
     private DatabaseReference mDatabase;
+    RelativeLayout progressIndicator;
+
 
 
     @Override
@@ -44,13 +47,19 @@ public class AddTNCActivity extends AppCompatActivity {
     private void setupView() {
         btnAdd = findViewById(R.id.btn_add);
         et_title = findViewById(R.id.edit_tnc);
+        progressIndicator = findViewById(R.id.progress_service);
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
     }
 
     private void setOnclick() {
+
         btnAdd.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+                progressIndicator.setVisibility(View.VISIBLE);
+
                 title = et_title.getText().toString();
                 final String timestamp = "" + System.currentTimeMillis();
 
@@ -62,6 +71,8 @@ public class AddTNCActivity extends AppCompatActivity {
                 mDatabase.child(timestamp).setValue(faq).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
+                        progressIndicator.setVisibility(View.INVISIBLE);
+
                         AlertDialog alertDialog = new AlertDialog.Builder(AddTNCActivity.this)
                                 .setTitle(getString(R.string.dialog_add_tnc))
                                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {

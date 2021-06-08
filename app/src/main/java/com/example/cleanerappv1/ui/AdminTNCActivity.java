@@ -24,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -43,6 +44,8 @@ public class AdminTNCActivity extends AppCompatActivity implements TncListAdapte
     TncListAdapter tncListAdapter;
     private ArrayList<TNC> tncArrayList;
     private DatabaseReference databaseReference;
+    RelativeLayout progressIndicator;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +75,8 @@ public class AdminTNCActivity extends AppCompatActivity implements TncListAdapte
         btnAdd = findViewById(R.id.btn_tnc_add);
 
         rvTNC = findViewById(R.id.recyclerViewTNC);
+        progressIndicator = findViewById(R.id.progress_service);
+        progressIndicator.setVisibility(View.VISIBLE);
     }
 
     private void setupAdapter() {
@@ -88,6 +93,7 @@ public class AdminTNCActivity extends AppCompatActivity implements TncListAdapte
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                progressIndicator.setVisibility(View.INVISIBLE);
                 if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         TNC tnc = dataSnapshot.getValue(TNC.class);

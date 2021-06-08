@@ -24,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -53,6 +54,8 @@ public class AdminFaqActivity extends AppCompatActivity implements FaqListAdapte
     FaqListAdapter faqListAdapter;
     private ArrayList<FAQ> faqArrayList;
     private DatabaseReference databaseReference;
+    RelativeLayout progressIndicator;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +86,8 @@ public class AdminFaqActivity extends AppCompatActivity implements FaqListAdapte
 
     private void setupView() {
         rvFaq = findViewById(R.id.recyclerViewFAQ);
+        progressIndicator = findViewById(R.id.progress_service);
+        progressIndicator.setVisibility(View.VISIBLE);
     }
 
     private void setupAdapter() {
@@ -96,9 +101,12 @@ public class AdminFaqActivity extends AppCompatActivity implements FaqListAdapte
     private void setupData() {
         databaseReference = FirebaseDatabase.getInstance().getReference();
         Query query = databaseReference.child("faq");
+
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                progressIndicator.setVisibility(View.INVISIBLE);
+
                 if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         FAQ faq = dataSnapshot.getValue(FAQ.class);
@@ -116,11 +124,12 @@ public class AdminFaqActivity extends AppCompatActivity implements FaqListAdapte
 
                 }
 
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                progressIndicator.setVisibility(View.INVISIBLE);
             }
         });
 

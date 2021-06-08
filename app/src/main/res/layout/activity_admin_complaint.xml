@@ -29,4 +29,10 @@
             android:layout_height="match_parent"/>
 
     </LinearLayout>
+
+    <include
+        android:id="@+id/progress_service"
+        layout="@layout/tool_progress_indicator"
+        android:visibility="invisible"/>
+
 </RelativeLayout>

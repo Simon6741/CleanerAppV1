@@ -73,6 +73,7 @@
                 android:text="@string/btn_send_email"
                 android:gravity="left|center_vertical"
                 android:backgroundTint="@color/white"
+                android:visibility="invisible"
                 android:textColor="@android:color/black">
             </Button>
 

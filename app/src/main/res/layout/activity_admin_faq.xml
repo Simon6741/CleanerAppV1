@@ -45,4 +45,10 @@
             android:textColor="@android:color/black"/>
 
     </RelativeLayout>
+
+    <include
+        android:id="@+id/progress_service"
+        layout="@layout/tool_progress_indicator"
+        android:visibility="invisible"/>
+
 </RelativeLayout>

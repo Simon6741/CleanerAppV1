@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 
 import com.example.cleanerappv1.R;
 import com.example.cleanerappv1.model.FAQ;
@@ -28,6 +29,8 @@ public class AdminAddFaqActivity extends AppCompatActivity {
     String title,details;
     private FirebaseDatabase db;
     private DatabaseReference mDatabase;
+    RelativeLayout progressIndicator;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,14 +45,18 @@ public class AdminAddFaqActivity extends AppCompatActivity {
         btnAdd = findViewById(R.id.btn_add);
         et_title = findViewById(R.id.edit_title);
         et_details = findViewById(R.id.edit_details);
+        progressIndicator = findViewById(R.id.progress_service);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
     }
 
     private void setOnclick() {
+
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressIndicator.setVisibility(View.VISIBLE);
+
                 title = et_title.getText().toString();
                 details = et_details.getText().toString();
 
@@ -63,6 +70,7 @@ public class AdminAddFaqActivity extends AppCompatActivity {
                 mDatabase.child(timestamp).setValue(faq).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
+                        progressIndicator.setVisibility(View.INVISIBLE);
                         AlertDialog alertDialog = new AlertDialog.Builder(AdminAddFaqActivity.this)
                                 .setTitle(getString(R.string.dialog_add_faq))
                                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {

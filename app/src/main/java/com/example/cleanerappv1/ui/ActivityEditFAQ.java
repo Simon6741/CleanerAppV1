@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,6 +33,8 @@ public class ActivityEditFAQ extends AppCompatActivity {
     String title, detail, id;
     private FirebaseDatabase db;
     private DatabaseReference mDatabase;
+    RelativeLayout progressIndicator;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,9 @@ public class ActivityEditFAQ extends AppCompatActivity {
         btnEdit = findViewById(R.id.btn_edit);
         et_title = findViewById(R.id.edit_title);
         et_details = findViewById(R.id.edit_details);
+        progressIndicator = findViewById(R.id.progress_service);
+
+
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -62,6 +68,8 @@ public class ActivityEditFAQ extends AppCompatActivity {
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressIndicator.setVisibility(View.VISIBLE);
+
                 title = et_title.getText().toString();
                 detail = et_details.getText().toString();
 
@@ -73,6 +81,8 @@ public class ActivityEditFAQ extends AppCompatActivity {
                 mDatabase.child(id).setValue(faq).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
+                        progressIndicator.setVisibility(View.INVISIBLE);
+
                         AlertDialog alertDialog = new AlertDialog.Builder(ActivityEditFAQ.this)
                                 .setTitle(getString(R.string.dialog_edit_faq))
                                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {

@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +33,7 @@ public class AdminComplaintActivity extends AppCompatActivity {
     ComplaintListAdapter complaintListAdapter;
     private ArrayList<Complain> complainArrayList;
     private DatabaseReference databaseReference;
+    RelativeLayout progressIndicator;
 
     String bookingID,commnet,feedback_id,rating;
 
@@ -49,6 +52,8 @@ public class AdminComplaintActivity extends AppCompatActivity {
 
     private void setupView() {
         rvComplaint = findViewById(R.id.recyclerViewComplaint);
+        progressIndicator = findViewById(R.id.progress_service);
+        progressIndicator.setVisibility(View.VISIBLE);
     }
 
     private void setupAdapter() {
@@ -66,6 +71,7 @@ public class AdminComplaintActivity extends AppCompatActivity {
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                progressIndicator.setVisibility(View.INVISIBLE);
                 if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         Complain complain = dataSnapshot.getValue(Complain.class);
