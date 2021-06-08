@@ -221,11 +221,29 @@
     <string name="tnc">Terms And Conditions</string>
     <string name="btn_edit">Edit</string>
     <string name="btn_add">Add</string>
+    <string name="btn_delete">Delete</string>
     <string name="complaint_username">Username : %s</string>
     <string name="complaint_details">Details: </string>
     <string name="btn_send_email">Send Email</string>
 
     <string name="complaint_list">Complaint List</string>
+
+    <string name="faq_title">Title</string>
+    <string name="faq_desc">Description</string>
+
+    <string name="edit_tnc">Edit Tnc</string>
+    <string name="faq">FAQ</string>
+
+    <string name="add_faq">Add New Faq</string>
+    <string name="faq_title_secondary">Title :</string>
+    <string name="faq_title_placeholder">Faq Title</string>
+    <string name="username_title">Username : %s</string>
+
+
+
+
+
+
 
 
 </resources>

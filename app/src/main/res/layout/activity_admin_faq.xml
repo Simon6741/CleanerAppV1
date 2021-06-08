@@ -4,43 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".admin_faq">
+    tools:context=".ui.admin_faq">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        app:menu="@menu/admin">
+        android:layout_marginBottom="20dp">
 
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+        <TextView
+            android:id="@+id/tv_faq_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/faq"
+            android:textSize="25sp"
+            android:textColor="@android:color/holo_red_dark" />
 
-    <TextView
-        android:id="@+id/tx1"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:text="FAQ"
-        android:textSize="25sp"
-        android:textColor="@android:color/holo_red_dark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewFAQ"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_faq_title"/>
 
-    <ListView
-        android:id="@+id/lv_faq"
-        android:layout_width="match_parent"
-        android:layout_height="480dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginBottom="100dp"/>
+        <Button
+            android:id="@+id/btn_faq_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentBottom="true"
+            android:text="@string/btn_add"
+            android:gravity="center|center_vertical"
+            android:backgroundTint="@color/white"
+            android:textColor="@android:color/black"/>
 
-    <Button
-        android:id="@+id/add"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="500dp"
-        android:text="Add new faq" />
+    </RelativeLayout>
 </RelativeLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".admin_term">
+    tools:context=".ui.admin_term">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -20,18 +20,19 @@
             android:layout_marginLeft="10dp"
             android:text="@string/tnc"
             android:textSize="25dp"
-            android:textColor="@android:color/holo_red_dark" />
+            android:textColor="@android:color/holo_red_dark"
+            />
 
-        <TextView
-            android:id="@+id/tv_tnc_desc"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/edit_tnc"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_tnc"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"/>
-
+            android:layout_marginBottom="10dp"
+            android:hint="@string/edit_tnc"/>
 
 
         <Button
@@ -41,7 +42,10 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_alignParentBottom="true"
-            android:text="@string/btn_edit"/>
+            android:text="@string/btn_edit"
+            android:gravity="center|center_vertical"
+            android:backgroundTint="@color/white"
+            android:textColor="@android:color/black"/>
     </RelativeLayout>
 
 

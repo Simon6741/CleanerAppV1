@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".admin_complaint">
+    tools:context=".ui.admin_complaint">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,11 +22,11 @@
             android:textColor="@android:color/holo_red_dark" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewUser"
+            android:id="@+id/recyclerViewComplaint"
             android:layout_width="match_parent"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 </RelativeLayout>

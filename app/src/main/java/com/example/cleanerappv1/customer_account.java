@@ -39,6 +39,7 @@ public class customer_account extends AppCompatActivity {
 
         this.setTitle("My Account");
 
+
         username = findViewById(R.id.cust_username);
         full_name = findViewById(R.id.cust_fullname);
         phone = findViewById(R.id.cust_phone);

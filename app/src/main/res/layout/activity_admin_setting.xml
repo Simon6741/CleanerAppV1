@@ -29,9 +29,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/faq"
+        android:id="@+id/btn_faq"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:layout_marginLeft="10dp"
         android:text="FAQ"
@@ -41,9 +41,9 @@
         android:textColor="@android:color/black"/>
 
     <Button
-        android:id="@+id/term"
+        android:id="@+id/btn_tnc"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:layout_marginLeft="10dp"
         android:text="TERM AND CONDITION"
@@ -53,9 +53,9 @@
         android:textColor="@android:color/black"/>
 
     <Button
-        android:id="@+id/complaint_btn"
+        android:id="@+id/btn_complaint"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
         android:layout_marginLeft="10dp"
         android:text="complaint"
